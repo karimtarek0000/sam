@@ -1,0 +1,26 @@
+// CHANGE THEME WITH BOOTSTRAP
+@import "sass/vendor/bootstrap";
+//////////////////////////////////////////////
+// HELPERS
+@import "sass/helpers/variables/variables";
+//
+@import "sass/helpers/mixins/typography";
+
+//////////////////////////////////////////////
+// COMPONENTS
+@import "sass/components/animation";
+//
+@import "sass/helpers/utilites";
+@import "sass/helpers/dir/changeDir";
+@import "sass/helpers/general";
+//////////////////////////////////////////////
+// LAYOUT
+//////////////////////////////////////////////
+// FONT
+@import "sass/font/font";
+//////////////////////////////////////////////
+// BASE
+@import "sass/base/base";
+//////////////////////////////////////////////
+// PAGES
+@import "sass/pages/home";
