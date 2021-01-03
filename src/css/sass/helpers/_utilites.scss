@@ -1,0 +1,18 @@
+// Cursor
+.cursor {
+  cursor: pointer;
+}
+
+// Resize svg
+.resize-svg {
+  width: 30px;
+  height: 30px;
+}
+
+//
+.first-letter {
+  //
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}

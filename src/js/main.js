@@ -23,70 +23,70 @@ jQuery(function () {
   //////////
   // Change lang
   // 1) Render language
-  //   async function renderLanguage(getLang) {
-  //     // 2) Get data
-  //     const localizition = await $.get(`../localizition/${getLang}.json`);
-  //     // 3) Change language
-  //     if (getLang === "ar") {
-  //       $("html").attr({ dir: "rtl", lang: "ar" });
-  //     } else {
-  //       $("html").attr({ dir: "ltr", lang: "en" });
-  //     }
-  //     // Form
-  //     $("form")
-  //       .find(`[key]`)
-  //       .each(function (i, cur) {
-  //         //
-  //         if ($(cur).is("input, textarea")) {
-  //           $(cur).attr(
-  //             "placeholder",
-  //             localizition.pages[$(this).attr("key")]["form"][
-  //               $(this).data("lang")
-  //             ]
-  //           );
-  //         }
-  //         //
-  //         if ($(cur).is("label, button")) {
-  //           $(cur).text(
-  //             localizition.pages[$(this).attr("key")]["form"][
-  //               $(this).data("lang")
-  //             ]
-  //           );
-  //         }
-  //       });
-  //     // Navbar links
-  //     $(".navbar-nav a").each((i, cur) =>
-  //       $(cur).text(localizition.navbar[$(cur).attr("key")])
-  //     );
-  //   }
-  //   // 2) When change lang
-  //   $(".change_lang").on("change", function () {
-  //     // 1) Get new value from select element
-  //     let getLang = $(this).val();
-  //     // 2) Set new value in item
-  //     localStorage.setItem("language", getLang);
-  //     // 3) Reload page
-  //     location.reload();
-  //   });
-  //   // Change select lang
-  //   function changeSelectLang(lang) {
-  //     $(".change_lang option").each((i, cur) => {
-  //       if ($(cur).attr("value") === lang) {
-  //         $(cur).attr("selected", true).siblings().removeAttr("selected");
-  //       }
-  //     });
-  //   }
+  async function renderLanguage(getLang) {
+    // 2) Get data
+    const localizition = await $.get(`../localizition/${getLang}.json`);
+    // 3) Change language
+    if (getLang === "ar") {
+      $("html").attr({ dir: "rtl", lang: "ar" });
+    } else {
+      $("html").attr({ dir: "ltr", lang: "en" });
+    }
+    // Form
+    // $("form")
+    //   .find(`[key]`)
+    //   .each(function (i, cur) {
+    //     //
+    //     if ($(cur).is("input, textarea")) {
+    //       $(cur).attr(
+    //         "placeholder",
+    //         localizition.pages[$(this).attr("key")]["form"][
+    //           $(this).data("lang")
+    //         ]
+    //       );
+    //     }
+    //     //
+    //     if ($(cur).is("label, button")) {
+    //       $(cur).text(
+    //         localizition.pages[$(this).attr("key")]["form"][
+    //           $(this).data("lang")
+    //         ]
+    //       );
+    //     }
+    //   });
+    // Navbar links
+    // $(".navbar-nav a").each((i, cur) =>
+    //   $(cur).text(localizition.navbar[$(cur).attr("key")])
+    // );
+  }
+  // 2) When change lang
+  $(".change_lang").on("change", function () {
+    // 1) Get new value from select element
+    let getLang = $(this).val();
+    // 2) Set new value in item
+    localStorage.setItem("language", getLang);
+    // 3) Reload page
+    location.reload();
+  });
+  // Change select lang
+  function changeSelectLang(lang) {
+    $(".change_lang option").each((i, cur) => {
+      if ($(cur).attr("value") === lang) {
+        $(cur).attr("selected", true).siblings().removeAttr("selected");
+      }
+    });
+  }
   //
-  //   const getLanguage = localStorage.getItem("language");
-  //   // If there local storage in site with name language will be render language site with in the same language if not will be render language site with selected lang from select box
-  //   if (getLanguage !== null) {
-  //     changeSelectLang(getLanguage);
-  //     renderLanguage(getLanguage);
-  //   } else {
-  //     const getLang = $(".change_lang").val();
-  //     renderLanguage(getLang);
-  //     changeSelectLang(getLang);
-  //   }
+  const getLanguage = localStorage.getItem("language");
+  // If there local storage in site with name language will be render language site with in the same language if not will be render language site with selected lang from select box
+  if (getLanguage !== null) {
+    changeSelectLang(getLanguage);
+    renderLanguage(getLanguage);
+  } else {
+    const getLang = $(".change_lang").val();
+    renderLanguage(getLang);
+    changeSelectLang(getLang);
+  }
   // Change dir slider
   //   $(".slick-slider").addClass("direction-ltr");
   //

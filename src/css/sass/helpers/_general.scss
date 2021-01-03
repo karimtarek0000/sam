@@ -1,0 +1,147 @@
+/////////////////////////////
+//// Navbar
+// Navbar
+.navbar {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(46, 53, 61, 0.74) 40%,
+    rgba(74, 83, 93, 0.58) 71%,
+    rgba(103, 114, 125, 0.41)
+  );
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+
+  // Nav item
+  .nav-item {
+    transition: all 0.3s;
+
+    &:hover {
+      //
+      @media (hover: hover) {
+        background-color: var(--blue);
+      }
+    }
+  }
+
+  // Active
+  .active {
+    background-color: var(--blue-light);
+    font-weight: 500;
+  }
+}
+
+// Logo
+.logo {
+  //
+  width: 170px;
+  height: 50px;
+  //
+  @media (max-width: 600px) {
+    width: 123px;
+    height: 34px;
+  }
+}
+
+// Form control
+.form-control {
+  background-color: transparent;
+
+  //
+  input {
+    font-family: inherit;
+  }
+
+  //
+  &::placeholder {
+    color: darkeen(map-get($theme-colors, primary), 2%);
+    font-family: inherit;
+  }
+  //
+  &:focus {
+    background-color: inherit;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+// Change lang
+.change-lang {
+  width: 70px;
+  //
+  &__icon {
+    top: 50%;
+    right: 2px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  //
+  svg {
+    fill: black;
+    display: block;
+    width: 20px;
+    height: 10px;
+  }
+
+  //
+  & select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    padding-inline-end: 20px;
+  }
+}
+
+/////////////////////////////
+//// Header
+.header {
+  height: 100vh;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url(../img/header/1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  //
+  &__info {
+    will-change: animation;
+    animation: moveUp 0.8s 0.6s ease-out both;
+
+    //
+    p {
+      width: 55%;
+
+      //
+      @media (max-width: 600px) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/////////////////////////////
+//
+body {
+  position: relative;
+}
+
+//
+body::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: block;
+  width: 50%;
+  background-color: #f6f6f6;
+  z-index: -1;
+}

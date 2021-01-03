@@ -1,3 +1,31 @@
 //
 html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+
+  //
+  .header {
+    background-image: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.2)
+      ),
+      url(../img/header/1.png);
+
+    //
+    &__info {
+      margin-left: auto;
+    }
+  }
+
+  //
+  .change-lang__icon {
+    left: 0;
+    right: auto;
+  }
+
+  //
+  .resize-svg {
+    transform: scaleX(-1);
+  }
 }

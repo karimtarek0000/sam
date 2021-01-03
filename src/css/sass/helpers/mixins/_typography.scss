@@ -1,0 +1,37 @@
+// Heading
+@each $type, $size in $h-size {
+  .h-#{$type} {
+    font-size: #{$size}px;
+    line-height: #{$size}px;
+
+    @if $type == "large" or $type == "mid" {
+      @media (max-width: 600px) {
+        font-size: #{$size - 20}px;
+        line-height: #{$size - 20}px;
+      }
+    }
+  }
+}
+
+// Paragraph
+@each $type, $size in $p-size {
+  .p-#{$type} {
+    font-size: #{$size}px;
+    line-height: #{$size * 1.5}px;
+
+    //
+    @if $type == "large" or $type == "mid" {
+      //
+      @media (max-width: 600px) {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+//
+@each $type, $weight in $font-weight {
+  .weight-#{$type} {
+    font-weight: $weight;
+  }
+}

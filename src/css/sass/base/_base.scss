@@ -17,9 +17,11 @@ html {
 // BODY
 body {
   overflow-x: hidden;
+  font-family: Poppins, sans-serif;
   font-weight: 300;
+  background-color: var(--primary);
   direction: ltr;
-  // height: 10000px;
+  height: 10000px;
 }
 
 ///////////////////////////////
@@ -44,10 +46,26 @@ body::-webkit-scrollbar-thumb {
 }
 
 //
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+//
 h1,
 h2,
 h3,
 h4,
 h5 {
   user-select: none;
+}
+
+//
+button:focus {
+  outline: none;
+}
+
+//
+.navbar-dark .navbar-toggler {
+  border-color: var(--primary);
 }
