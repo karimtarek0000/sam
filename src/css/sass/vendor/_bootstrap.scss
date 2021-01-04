@@ -5,6 +5,7 @@ $theme-colors: (
   secondary: #323232,
   blue-light: #256cc2,
   blue-dark: #004190,
+  light-darken: #dbdbdb,
 );
 ///////////////////////////////////////////
 // ALL HELPERS BOOSTRAP
@@ -24,7 +25,6 @@ $theme-colors: (
 @import "node_modules/bootstrap/scss/input-group";
 @import "node_modules/bootstrap/scss/buttons";
 @import "node_modules/bootstrap/scss/transitions";
-@import "node_modules/bootstrap/scss/pagination";
 @import "node_modules/bootstrap/scss/nav";
 @import "node_modules/bootstrap/scss/media";
 @import "node_modules/bootstrap/scss/images";

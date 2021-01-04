@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/style.css"/>
     <title>home</title>
   </head>
-  <body>
+  <body><!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container"><a class="navbar-brand" href="/">
                   <svg class="logo">
@@ -25,8 +25,8 @@
             <li class="nav-item weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1">projects</li>
             <li class="nav-item weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1">contact us</li>
           </ul>
-          <div class="col-lg-4 d-lg-flex p-0">
-            <div class="search d-flex align-items-center">
+          <div class="col-lg-3 d-lg-flex p-0 justify-content-between">
+            <div class="search d-flex align-items-center mt-3 mt-lg-0">
                           <svg class="resize-svg mx-2 cursor">
                             <use xlink:href="./icons/sprite.svg#icon-search">
                               <title>search</title>
@@ -55,7 +55,7 @@
           </div>
         </div>
       </div>
-    </nav>
+    </nav><!-- Header -->
     <header class="header">
       <div class="row no-gutters align-items-center justify-content-center container h-100">
         <div class="col text-primary header__info px-1">
@@ -64,12 +64,28 @@
         </div>
       </div>
     </header>
-    <main>
-      <section class="about-us my-5">
-        <div class="row no-gutters container py-5">
-          <div class="col-lg-6">
-            <h2 class="h-mid weight-bold text-uppercase">about us</h2>
-            <p class="first-letter p-mid my-4 weight-normal">binqasem provides a platform on which you can offer objects to buyers in a range of countries worldwide. It is highly important for us that our platform is reliable and safe for both buyers and sellers, to guarantee the best possible customer experience and the best sales results. This requires you to accept and abide by the rules laid down in our terms and conditions. We want to take this opportunity to explain the most important rules for selling on binqasem.</p><a class="btn btn-blue-dark rounded-0 text-uppercase weight-normal" href="#" target="_blank">view more</a>
+    <main><!-- Section about us -->
+      <section class="about-us my-5 parallax">
+        <div class="row no-gutters container py-5 h-100">
+          <div class="col-lg-6 d-flex align-items-center">
+            <div class="about-us__info">
+              <h2 class="h-mid weight-bold text-uppercase mb-5 head">about us</h2>
+              <p class="first-letter p-mid my-4 weight-normal cut-word">binqasem provides a platform on which you can offer objects to buyers in a range of countries worldwide. It is highly important for us that our platform is reliable and safe for both buyers and sellers, to guarantee the best possible customer experience and the best sales results. This requires you to accept and abide by the rules laid down in our terms and conditions. We want to take this opportunity to explain the most important rules for selling on binqasem.</p><a class="btn btn-blue-dark rounded-0 px-5 more py-2 text-uppercase weight-normal" href="#" target="_blank">view more</a>
+            </div>
+          </div>
+        </div>
+      </section><!-- Section our projects -->
+      <section class="our-projects py-4 py-lg-0">
+        <div class="row no-gutters container h-100 align-items-center">
+          <div class="col-lg-6 text-primary d-flex align-items-center py-3 order-1 order-lg-0">
+            <div class="our-projects__info">
+                    <h2 class="h-mid weight-bold text-uppercase mb-5 head">our projects</h2>
+              <h3 class="h-small text-capitalize my-4 weight-bold" id="head">project name</h3>
+              <p class="first-letter text-light-darken weight-normal cut-word" id="par"></p><a class="btn btn-primary px-5 py-2 more rounded-0 text-uppercase weight-normal" href="#" target="_blank">view more</a>
+            </div>
+          </div>
+          <div class="col-lg-6 our-projects__images order-0 order-lg-1">
+            <div class="our-projects__wrapper"></div>
           </div>
         </div>
       </section>

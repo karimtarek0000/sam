@@ -1,6 +1,33 @@
-// Section about us
-.about-us {
-  background-image: url(../img/about/1.png);
+%background {
+  height: 90vh;
+  width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
+
+  @media (max-width: 992px) {
+    height: auto;
+  }
+}
+
+// Section about us
+.about-us {
+  position: relative;
+  background-image: url(../img/about/1.png);
+  @extend %background;
+
+  //
+  .head::after {
+    background-color: var(--secondary);
+  }
+}
+
+//
+.our-projects {
+  background-image: url(../img/projects/1.png);
+  @extend %background;
+
+  //
+  .head::after {
+    background-color: var(--primary);
+  }
 }

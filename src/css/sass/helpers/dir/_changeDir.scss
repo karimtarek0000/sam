@@ -3,6 +3,24 @@ html[dir="rtl"] body {
   direction: rtl;
   text-align: right;
 
+  ///////////////////////////
+  //// Other
+  .head::after {
+    right: 0;
+    left: auto;
+  }
+
+  //
+  .change-lang__icon {
+    left: 0;
+    right: auto;
+  }
+
+  //
+  .resize-svg {
+    transform: scaleX(-1);
+  }
+
   //
   .header {
     background-image: linear-gradient(
@@ -18,14 +36,20 @@ html[dir="rtl"] body {
     }
   }
 
+  ///////////////////////////
+  //// Slider
   //
-  .change-lang__icon {
-    left: 0;
-    right: auto;
+  .slick-slider .slick-track,
+  .slick-slider .slick-list {
+    direction: ltr;
   }
 
-  //
-  .resize-svg {
-    transform: scaleX(-1);
+  .slick-slide {
+    float: left;
+  }
+
+  .slick-dots li:not(:last-of-type) {
+    margin-left: 15px;
+    margin-right: auto;
   }
 }
