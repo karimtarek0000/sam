@@ -56,7 +56,7 @@
         </div>
       </div>
     </nav><!-- Header -->
-    <header class="header">
+    <header class="header overflow-hidden">
       <div class="row no-gutters align-items-center justify-content-center container h-100">
         <div class="col text-primary header__info px-1">
           <h1 class="h-large text-uppercase weight-bolder"><span class="d-lg-block">bid &</span><span class="d-lg-block">seize deal</span></h1>
@@ -65,7 +65,7 @@
       </div>
     </header>
     <main><!-- Section about us -->
-      <section class="about-us my-5 parallax">
+      <section class="about-us my-5">
         <div class="row no-gutters container py-5 h-100">
           <div class="col-lg-6 d-flex align-items-center">
             <div class="about-us__info">
@@ -80,7 +80,7 @@
           <div class="col-lg-6 text-primary d-flex align-items-center py-3 order-1 order-lg-0">
             <div class="our-projects__info">
                     <h2 class="h-mid weight-bold text-uppercase mb-5 head">our projects</h2>
-              <h3 class="h-small text-capitalize my-4 weight-bold" id="head">project name</h3>
+              <h3 class="h-small text-capitalize my-4 weight-bold" id="head"></h3>
               <p class="first-letter text-light-darken weight-normal cut-word" id="par"></p><a class="btn btn-primary px-5 py-2 more rounded-0 text-uppercase weight-normal" href="#" target="_blank">view more</a>
             </div>
           </div>
@@ -88,7 +88,106 @@
             <div class="our-projects__wrapper"></div>
           </div>
         </div>
-      </section>
+      </section><!-- Section our partners -->
+      <section class="partners mt-3 mt-lg-4 d-flex flex-column align-items-center justify-content-center">
+        <div class="row no-gutters container">
+                <h2 class="h-mid weight-bold text-uppercase mb-5 head">our partners</h2>
+        </div>
+        <div class="row no-gutters align-items-center justify-content-around partners__all-partners bg-primary h-100" id="partners__image">
+          <div class="col-6 col-md-2 partners__all-partners__image py-3 overflow-hidden"><img class="obj-image" src="./img/partners/1.png" alt="1"/>
+          </div>
+          <div class="col-6 col-md-2 partners__all-partners__image py-3 overflow-hidden"><img class="obj-image" src="./img/partners/2.png" alt="2"/>
+          </div>
+          <div class="col-6 col-md-2 partners__all-partners__image py-3 overflow-hidden"><img class="obj-image" src="./img/partners/3.png" alt="3"/>
+          </div>
+          <div class="col-6 col-md-2 partners__all-partners__image py-3 overflow-hidden"><img class="obj-image" src="./img/partners/4.png" alt="4"/>
+          </div>
+          <div class="col-6 col-md-2 partners__all-partners__image py-3 overflow-hidden"><img class="obj-image" src="./img/partners/5.png" alt="5"/>
+          </div>
+        </div>
+      </section><!-- Section contact -->
+      <footer class="contacts">
+        <div class="row no-gutters container align-items-start justify-content-between h-100 py-2 py-lg-5 border-bottom border-gray">
+          <div class="col-md-12 col-lg-3 text-gray contacts__section-1"><a class="navbar-brand" href="/">
+                          <svg class="logo">
+                            <use xlink:href="./icons/sprite.svg#icon-logo">
+                              <title>logo</title>
+                            </use>
+                          </svg></a>
+            <p class="first-letter p-mid weight-normal mt-3 mt-lg-3">download the binqasem app and get notifications when new auctions start or if there's any update to your items.</p>
+            <div class="my-3 my-lg-5">
+              <p class="d-flex align-items-center">
+                            <svg class="resize-svg-contact">
+                              <use xlink:href="./icons/sprite.svg#icon-send">
+                                <title>send</title>
+                              </use>
+                            </svg>For Queries: info@androomeda.net
+              </p>
+              <p class="d-flex align-items-center">
+                            <svg class="resize-svg-contact">
+                              <use xlink:href="./icons/sprite.svg#icon-telephone">
+                                <title>telephone</title>
+                              </use>
+                            </svg>For call : 920012888
+              </p>
+            </div>
+            <div class="contacts__section-1__icons d-flex"><a class="d-flex align-items-center justify-content-center rounded-circle" href="#">
+                            <svg class="resize-svg-contact">
+                              <use xlink:href="./icons/sprite.svg#icon-map">
+                                <title>map</title>
+                              </use>
+                            </svg></a><a class="d-flex align-items-center justify-content-center rounded-circle" href="#">
+                            <svg class="resize-svg-contact">
+                              <use xlink:href="./icons/sprite.svg#icon-telephone">
+                                <title>telephone</title>
+                              </use>
+                            </svg></a><a class="d-flex align-items-center justify-content-center rounded-circle" href="#">
+                            <svg class="resize-svg-contact">
+                              <use xlink:href="./icons/sprite.svg#icon-facebook">
+                                <title>facebook</title>
+                              </use>
+                            </svg></a><a class="d-flex align-items-center justify-content-center rounded-circle" href="#">
+                            <svg class="resize-svg-contact">
+                              <use xlink:href="./icons/sprite.svg#icon-twitter">
+                                <title>twitter</title>
+                              </use>
+                            </svg></a><a class="d-flex align-items-center justify-content-center rounded-circle" href="#">
+                            <svg class="resize-svg-contact">
+                              <use xlink:href="./icons/sprite.svg#icon-instagram">
+                                <title>instagram</title>
+                              </use>
+                            </svg></a></div>
+          </div>
+          <div class="col-md-4 col-lg-3 contacts__section-2 mt-3 mt-lg-4">
+                  <h4 class="h-xsmall weight-bold text-primary text-capitalize mb-2 mb-lg-4">popular searches</h4>
+                  <ul></ul>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">mobiles, electronic devices &amp; accessories</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">cars, trucks and bicycles</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">books &amp; novels</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">furniture &amp; home appliances</li>
+          </div>
+          <div class="col-md-3 col-lg-2 contacts__section-3 mt-3 mt-lg-4">
+                  <h4 class="h-xsmall weight-bold text-primary text-capitalize mb-2 mb-lg-4">auctions</h4>
+                  <ul></ul>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">exceptional products</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">featured auctions</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">recently added auctions</li>
+          </div>
+          <div class="col-md-3 col-lg-2 contacts__section-4 mt-3 mt-lg-4">
+                  <h4 class="h-xsmall weight-bold text-primary text-capitalize mb-2 mb-lg-4">about binqasem</h4>
+                  <ul></ul>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">about us</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">why so</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">become a seller</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">how auctions work</li>
+          </div>
+        </div>
+        <div class="row no-gutters container py-3">
+          <div class="col text-center text-lg-right">
+            <p class="text-gray text-uppercase m-0">copyright © <span id="year">2020</span> <a href="/">sam</a></p>
+          </div>
+        </div>
+      </footer>
     </main>
     <script src="./js/library/jquery.3.5.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

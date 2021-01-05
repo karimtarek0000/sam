@@ -143,4 +143,46 @@ jQuery(function () {
   }
   // Run fn render data slider
   renderDataSlider("../localizition/api.json");
+
+  /////////////////////////////////////
+  //// Section our partners
+  // 1) Get count images
+  function showAndHidden(timer) {
+    const countImages = $("#partners__image").children().length;
+    let count = 0;
+    //
+    setInterval(() => {
+      // 1) Check if count equal count image length will be return count = 0
+      if (count === countImages) count = 0;
+
+      // 2) Add class active on partners image
+      $("#partners__image")
+        .children()
+        .eq(count)
+        .addClass("partners__all-partners__image--active");
+
+      // 3) Trigger set time out after 2900 will be remove class active
+      setTimeout(() => {
+        $("#partners__image")
+          .children()
+          .eq(count - 1)
+          .removeClass("partners__all-partners__image--active");
+      }, timer.setTimeOut);
+
+      // 4) Finaly get variable count, and increment += 1
+      count++;
+    }, timer.setInterval);
+  }
+
+  // Run function SHOWANDHIDDEN
+  if ($(document).outerWidth(true) > 768) {
+    //
+    showAndHidden({
+      setTimeOut: 2400,
+      setInterval: 2500,
+    });
+  }
+
+  // Footer
+  $("#year").text(new Date().getFullYear());
 });

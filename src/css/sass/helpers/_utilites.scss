@@ -10,6 +10,15 @@
 }
 
 //
+.resize-svg-contact {
+  width: 16px;
+  height: 16px;
+  fill: var(--primary);
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+//
 .first-letter {
   //
   &::first-letter {
@@ -42,9 +51,4 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;
-}
-
-// Fixed Image
-.parallax {
-  background-attachment: fixed;
 }

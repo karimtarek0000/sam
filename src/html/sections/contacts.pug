@@ -1,0 +1,50 @@
+//- 
+include ../components/svg
+include ../components/section-contact
+
+//- 
+footer.contacts
+
+    .row.no-gutters.container.align-items-start.justify-content-between.h-100.py-2.py-lg-5.border-bottom.border-gray
+
+        .col-md-12.col-lg-3.text-gray.contacts__section-1
+            //- 
+            include ../components/logo
+            p.first-letter.p-mid.weight-normal.mt-3.mt-lg-3 download the binqasem app and get notifications when new auctions start or if there's any update to your items.
+
+            div.my-3.my-lg-5
+                p.d-flex.align-items-center
+                    +getSvgIcon('send', 'resize-svg-contact')
+                    | For Queries: info@androomeda.net
+                p.d-flex.align-items-center
+                    +getSvgIcon('telephone', 'resize-svg-contact')
+                    | For call : 920012888
+
+            div.contacts__section-1__icons.d-flex
+                a(class="d-flex align-items-center justify-content-center rounded-circle" href="#")
+                    +getSvgIcon('map', 'resize-svg-contact')
+                a(class="d-flex align-items-center justify-content-center rounded-circle" href="#")
+                    +getSvgIcon('telephone', 'resize-svg-contact')
+                a(class="d-flex align-items-center justify-content-center rounded-circle" href="#")
+                    +getSvgIcon('facebook', 'resize-svg-contact')
+                a(class="d-flex align-items-center justify-content-center rounded-circle" href="#")
+                    +getSvgIcon('twitter', 'resize-svg-contact')
+                a(class="d-flex align-items-center justify-content-center rounded-circle" href="#")
+                    +getSvgIcon('instagram', 'resize-svg-contact')
+
+        .col-md-4.col-lg-3.contacts__section-2.mt-3.mt-lg-4
+            -var one = ['mobiles, electronic devices & accessories', 'cars, trucks and bicycles', 'books & novels', 'furniture & home appliances']
+            +sectionContact('popular searches', one)
+
+        .col-md-3.col-lg-2.contacts__section-3.mt-3.mt-lg-4
+            -var two = ['exceptional products', 'featured auctions', 'recently added auctions']
+            +sectionContact('auctions', two)
+
+        .col-md-3.col-lg-2.contacts__section-4.mt-3.mt-lg-4
+            -var three = ['about us', 'why so', 'become a seller', 'how auctions work']
+            +sectionContact('about binqasem', three)
+
+
+    .row.no-gutters.container.py-3
+        .col.text-center.text-lg-right
+            p.text-gray.text-uppercase.m-0 copyright © !{'<span id="year">2020</span>'} !{'<a href="/">sam</a>'}

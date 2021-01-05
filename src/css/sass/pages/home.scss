@@ -1,3 +1,4 @@
+// Placeholder background
 %background {
   height: 90vh;
   width: 100%;
@@ -21,7 +22,7 @@
   }
 }
 
-//
+// Section Our projects
 .our-projects {
   background-image: url(../img/projects/1.png);
   @extend %background;
@@ -29,5 +30,110 @@
   //
   .head::after {
     background-color: var(--primary);
+  }
+
+  //
+  &__images {
+    box-shadow: 0 0 20px 0 rgba(1, 1, 1, 0.65);
+  }
+}
+
+// Section partners
+.partners {
+  height: 80vh;
+
+  //
+  @media (max-width: 600px) {
+    height: auto;
+  }
+
+  h2 {
+    top: 60px;
+
+    @media (max-width: 768px) {
+      top: 0;
+    }
+  }
+
+  //
+  .head::after {
+    background-color: var(--secondary);
+  }
+
+  //
+  &__all-partners {
+    //
+    &__image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.3;
+      transition: opacity 0.5s ease;
+
+      //
+      @media (max-width: 768px) {
+        opacity: 1;
+      }
+
+      //
+      &--active {
+        opacity: 1;
+      }
+
+      //
+      img {
+        width: 75%;
+        height: auto;
+
+        //
+        @media (max-width: 768px) {
+          width: 30%;
+          min-width: 30%;
+        }
+      }
+    }
+  }
+}
+
+// Footer => contacts
+.contacts {
+  height: auto;
+  background-image: url(../img/contacts/1.png);
+  @extend %background;
+
+  //
+  &__section {
+    //
+    &-1 {
+      p {
+        svg {
+          margin-right: 15px;
+        }
+      }
+
+      // Icons
+      &__icons {
+        //
+        a {
+          width: 36px;
+          height: 36px;
+          background-color: var(--svg);
+          transition: background-color 0.3s ease;
+
+          //
+          &:not(:last-of-type) {
+            margin-right: 15px;
+          }
+
+          //
+          &:hover {
+            //
+            @media (hover: hover) {
+              background-color: lighten(map-get($theme-colors, svg), 5%);
+            }
+          }
+        }
+      }
+    }
   }
 }
