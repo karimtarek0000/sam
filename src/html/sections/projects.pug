@@ -7,7 +7,7 @@ include ../components/head-h2
 include ../components/button-primary
 
 //- 
-section.our-projects.py-4.py-lg-0
+section.our-projects.py-4.py-lg-0#projects
 
     .row.no-gutters.container.h-100.align-items-center
 
@@ -19,7 +19,7 @@ section.our-projects.py-4.py-lg-0
                 h3.h-small.text-capitalize.my-4.weight-bold#head
                 p.first-letter.text-light-darken.weight-normal.cut-word#par
 
-                +createBtn('btn btn-primary px-5 py-2 more rounded-0 text-uppercase weight-normal', 'view more', '#', num)
+                +createBtn('btn btn-primary px-5 py-2 rounded-0 text-uppercase weight-normal', 'view more', '/projects')(id="viewMoreProject")
 
         .col-lg-6.our-projects__images.order-0.order-lg-1
 

@@ -19,11 +19,11 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1 active">home</li>
-            <li class="nav-item weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1">about us</li>
-            <li class="nav-item weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1">services</li>
-            <li class="nav-item weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1">projects</li>
-            <li class="nav-item weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1">contact us</li>
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1 active" data-section="home" href="#">home</a></li>
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="aboutus" href="#">about us</a></li>
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="projects" href="#">projects</a></li>
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="partners" href="#">partners</a></li>
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="contactus" href="#">contact us</a></li>
           </ul>
           <div class="col-lg-3 d-lg-flex p-0 justify-content-center">
             <div class="search d-flex align-items-center mt-3 mt-lg-0">
@@ -65,7 +65,7 @@
       </div>
     </header>
     <main><!-- Section about us -->
-      <section class="about-us my-5">
+      <section class="about-us my-5" id="aboutus">
         <div class="row no-gutters container py-5 h-100">
           <div class="col-lg-6 d-flex align-items-center">
             <div class="about-us__info">
@@ -75,13 +75,13 @@
           </div>
         </div>
       </section><!-- Section our projects -->
-      <section class="our-projects py-4 py-lg-0">
+      <section class="our-projects py-4 py-lg-0" id="projects">
         <div class="row no-gutters container h-100 align-items-center">
           <div class="col-lg-6 text-primary d-flex align-items-center py-3 order-1 order-lg-0">
             <div class="our-projects__info">
                     <h2 class="h-mid weight-bold text-uppercase mb-5 head">our projects</h2>
               <h3 class="h-small text-capitalize my-4 weight-bold" id="head"></h3>
-              <p class="first-letter text-light-darken weight-normal cut-word" id="par"></p><a class="btn btn-primary px-5 py-2 more rounded-0 text-uppercase weight-normal" href="#" target="_blank">view more</a>
+              <p class="first-letter text-light-darken weight-normal cut-word" id="par"></p><a class="btn btn-primary px-5 py-2 rounded-0 text-uppercase weight-normal" href="/projects" target="_blank" id="viewMoreProject">view more</a>
             </div>
           </div>
           <div class="col-lg-6 our-projects__images order-0 order-lg-1">
@@ -89,11 +89,11 @@
           </div>
         </div>
       </section><!-- Section our partners -->
-      <section class="partners mt-3 mt-lg-4 d-flex flex-column align-items-center justify-content-center">
+      <section class="partners mt-3 mt-lg-4 d-flex flex-column align-items-center justify-content-center" id="partners">
         <div class="row no-gutters container">
                 <h2 class="h-mid weight-bold text-uppercase mb-5 head">our partners</h2>
         </div>
-        <div class="row no-gutters align-items-center justify-content-around partners__all-partners bg-primary h-100" id="partners__image">
+        <div class="row no-gutters align-items-center justify-content-around partners__all-partners h-100" id="partners__image">
           <div class="col-6 col-md-2 partners__all-partners__image py-3 overflow-hidden"><img class="obj-image" src="./img/partners/1.png" alt="1"/>
           </div>
           <div class="col-6 col-md-2 partners__all-partners__image py-3 overflow-hidden"><img class="obj-image" src="./img/partners/2.png" alt="2"/>
@@ -106,7 +106,7 @@
           </div>
         </div>
       </section><!-- Section contact -->
-      <footer class="contacts">
+      <footer class="contacts" id="contactus">
         <div class="row no-gutters container align-items-start justify-content-between h-100 py-2 py-lg-5 border-bottom border-gray">
           <div class="col-md-12 col-lg-3 text-gray contacts__section-1"><a class="navbar-brand" href="/">
                           <svg class="logo">

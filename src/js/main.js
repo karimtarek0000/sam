@@ -1,27 +1,24 @@
 jQuery(function () {
+  /////////////////////////////////////
   //// Navbar
-  //   $(".nav-link").on("click", function () {
-  //     // 1) Remove class show when click link
-  //     $(this).parentsUntil("navbar-collapse").removeClass("show");
-  //   });
-  // Scroll document
-  //   $(document).on("scroll", function () {
-  //     //
-  //     $(document).scrollTop() >= 1000
-  //       ? $("#scrollUp").addClass("fadeIn")
-  //       : $("#scrollUp").removeClass("fadeIn");
-  //   });
-  //   // Scroll up document
-  //   $("#scrollUp").on("click", () => {
-  //     $("html, body").animate(
-  //       {
-  //         scrollTop: 0,
-  //       },
-  //       1000
-  //     );
-  //   });
-  //////////
-  // Change lang
+  $(".nav-link").on("click", function (e) {
+    // 1) Prevent default
+    e.preventDefault();
+    // 2) Get the attr section
+    const attrSection = $(this).data("section");
+    // 3) Remove class show when click link
+    $(this).parentsUntil("navbar-collapse").removeClass("show");
+    // 4) Animate to the section
+    $("html, body").animate(
+      {
+        scrollTop: $(`#${attrSection}`).offset().top - 20,
+      },
+      1000
+    );
+  });
+
+  /////////////////////////////////////
+  //// Change lang
   // 1) Render language
   async function renderLanguage(getLang) {
     // 2) Get data
@@ -87,7 +84,7 @@ jQuery(function () {
     }
   });
 
-  // Header slider
+  // Section our projects
   $(".our-projects__wrapper").slick({
     lazyLoad: "progressive",
     infinite: false,
@@ -101,6 +98,31 @@ jQuery(function () {
     cssEase: "linear",
   });
 
+  // Header projects slider
+  $(".header-projects__wrapper").slick({
+    lazyLoad: "progressive",
+    infinite: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: true,
+    prevArrow: `<svg class='a-left prev slick-prev'>
+    <use xlink:href="../icons/sprite.svg#icon-angle-left">
+    </svg>`,
+    nextArrow: `<svg class='a-right next slick-next'>
+    <use xlink:href="../icons/sprite.svg#icon-angle-right">
+    </svg>`,
+    responsive: [
+      {
+        breakpoint: 793,
+        settings: {
+          arrows: false,
+        },
+      },
+    ],
+  });
+
   /////////////////////////////////////
   //// Section our projects
   //
@@ -108,6 +130,7 @@ jQuery(function () {
     wrapper: $(".our-projects__wrapper"),
     head: $("#head"),
     par: $("#par"),
+    btn: $("#viewMoreProject"),
   };
 
   // Async function render data slider
@@ -127,15 +150,30 @@ jQuery(function () {
         // 4) If indes === index active class / will be render paragraph from this index
         if (index === indexActiveClass) {
           elementSlider.head.text(cur.name);
-          elementSlider.par.text(cur.par);
+          elementSlider.par.text(cur.description);
         }
       });
 
       // 3) Get id after changed
+      let indexDataArray = $(".slick-dots li.slick-active").index();
+
+      //
       elementSlider.wrapper.on("afterChange", function () {
+        // 1) Get current index after change slider
         var indexCurrentSlide = $(".slick-current").attr("data-slick-index");
+        // 2) Update var => indexDataArray equal indexCurrentSlide
+        indexDataArray = indexCurrentSlide;
+        // 3) Change head, and par with index data from API
         elementSlider.head.text(dataSlider[indexCurrentSlide].name);
-        elementSlider.par.text(dataSlider[indexCurrentSlide].par);
+        elementSlider.par.text(dataSlider[indexCurrentSlide].description);
+      });
+
+      // 4) When clicked in btn will be get data the current
+      elementSlider.btn.on("click", (e) => {
+        // 1) Get data with index the current slide, and convert to json
+        const data = JSON.stringify(dataSlider[indexDataArray]);
+        // 2) Finaly store data in localstorge
+        localStorage.setItem("project", data);
       });
     } catch (err) {
       alert("some error please try reload");
@@ -144,6 +182,27 @@ jQuery(function () {
   // Run fn render data slider
   renderDataSlider("../localizition/api.json");
 
+  //
+  if (location.pathname.includes("project")) {
+    //
+    const elementProjects = {
+      name: $("#projectName"),
+      location: $("#projectLocation"),
+      date: $("#projectDate"),
+      description: $("#projectDesc"),
+    };
+    //
+    const getDataLocalStorage = JSON.parse(localStorage.getItem("project"));
+
+    //
+    if (getDataLocalStorage !== null) {
+      //
+      elementProjects.name.text(getDataLocalStorage.name);
+      elementProjects.location.text(getDataLocalStorage.city);
+      elementProjects.date.text(getDataLocalStorage.date);
+      elementProjects.description.text(getDataLocalStorage.description);
+    }
+  }
   /////////////////////////////////////
   //// Section our partners
   // 1) Get count images
@@ -174,6 +233,7 @@ jQuery(function () {
     }, timer.setInterval);
   }
 
+  /////////////////////////////////////
   // Run function SHOWANDHIDDEN
   if ($(document).outerWidth(true) > 768) {
     //
@@ -183,6 +243,7 @@ jQuery(function () {
     });
   }
 
-  // Footer
+  /////////////////////////////////////
+  //// Footer
   $("#year").text(new Date().getFullYear());
 });

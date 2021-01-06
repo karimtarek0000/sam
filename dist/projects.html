@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="#061727"/>
+    <link rel="stylesheet" href="./css/library/slick.css"/>
+    <link rel="stylesheet" href="./css/style.css"/>
+    <title>projects</title>
+  </head>
+  <body><!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container"><a class="navbar-brand" href="/">
+                  <svg class="logo">
+                    <use xlink:href="./icons/sprite.svg#icon-logo">
+                      <title>logo</title>
+                    </use>
+                  </svg></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="home" href="#">home</a></li>
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="aboutus" href="#">about us</a></li>
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1 active" data-section="projects" href="#">projects</a></li>
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="partners" href="#">partners</a></li>
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="contactus" href="#">contact us</a></li>
+          </ul>
+          <div class="col-lg-3 d-lg-flex p-0 justify-content-center">
+            <div class="search d-flex align-items-center mt-3 mt-lg-0">
+                          <svg class="resize-svg mx-2 cursor">
+                            <use xlink:href="./icons/sprite.svg#icon-search">
+                              <title>search</title>
+                            </use>
+                          </svg>
+              <input class="form-control rounded-0 text-primary" type="text" placeholder="SELL AT AUCTION"/>
+            </div>
+            <div class="form-group change-lang m-0 h-100 cursor mt-3 mt-lg-0 mx-0 mx-md-2 position-relative shrink-0">
+              <div class="change-lang__icon position-absolute">
+                            <svg class="resize-svg grow-0 shrink-0">
+                              <use xlink:href="./icons/sprite.svg#icon-angle-up">
+                                <title>angle-up</title>
+                              </use>
+                            </svg>
+                            <svg class="resize-svg grow-0 shrink-0">
+                              <use xlink:href="./icons/sprite.svg#icon-angle-down">
+                                <title>angle-down</title>
+                              </use>
+                            </svg>
+              </div>
+              <select class="form-control change_lang h-100 rounded-0 border-0 bg-primary text-light-1 text-uppercase" id="exampleFormControlSelect1">
+                <option class="change_lang" selected="selected" value="en">en</option>
+                <option class="change_lang" value="ar">ar</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav><!-- Header -->
+    <header class="header-projects position-relative">
+      <div class="header-projects__info position-absolute p-4 rounded text-primary">
+        <h3 class="h-mid text-uppercase weight-bold mb-3" id="projectName">project name</h3>
+        <p class="p-large text-capitalize m-0">location: <span id="projectLocation"></span></p>
+        <p class="p-large text-capitalize m-0">date: <span id="projectDate"></span></p>
+      </div>
+      <div class="row no-gutters header-projects__wrapper h-100 overflow-hidden position-relative"><img class="img-fluid obj-image" src="./img/header/1.jpg" alt="1"/><img class="img-fluid obj-image" src="./img/header/1.jpg" alt="1"/><img class="img-fluid obj-image" src="./img/header/1.jpg" alt="1"/><img class="img-fluid obj-image" src="./img/header/1.jpg" alt="1"/></div>
+    </header>
+    <div class="container my-4 h-50">
+      <p class="first-letter p-mid weight-bold" id="projectDesc">BinQasem provides a platform on which you can offer objects to buyers in a range of countries worldwide. It is highly important for us that our platform is reliable and safe for both buyers and sellers, to guarantee the best possible customer experience and the best sales results. This requires you to accept and abide by the rules laid down in our Terms and Conditions. We want to take this opportunity to explain the most important rules for selling on BinQasem.</p>
+    </div>
+    <main><!-- Section about us --></main>
+    <script src="./js/library/jquery.3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="./js/library/slick.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
+  </body>
+</html>

@@ -6,8 +6,8 @@
 
     @if $type == "large" or $type == "mid" {
       @media (max-width: 600px) {
-        font-size: #{$size - 20}px;
-        line-height: #{$size - 20}px;
+        font-size: #{$size - 25}px;
+        line-height: #{$size - 25}px;
       }
     }
   }
@@ -17,7 +17,7 @@
 @each $type, $size in $p-size {
   .p-#{$type} {
     font-size: #{$size}px;
-    line-height: #{$size * 1.5}px;
+    line-height: #{$size * 1.7}px;
 
     //
     @if $type == "large" or $type == "mid" {

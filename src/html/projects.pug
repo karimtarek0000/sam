@@ -1,0 +1,19 @@
+//- EXTENDS 
+extends extend/page.pug
+
+//- CHANGE TITLE
+block title
+    -var titlePage = 'projects'
+    title #{titlePage}
+
+//- CHANGE CONTENT
+block content
+    <!-- Navbar -->
+    include ./components/navbar
+    <!-- Header -->
+    include ./components/headerProjects
+    main
+        <!-- Section about us -->
+        //- include ./sections/about-us
+
+
