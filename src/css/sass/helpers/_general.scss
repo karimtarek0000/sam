@@ -9,6 +9,7 @@
     rgba(103, 114, 125, 0.41)
   );
 
+  //
   @media (max-width: 992px) {
     background-image: linear-gradient(
       to bottom,
@@ -43,19 +44,25 @@
     font-weight: 500;
   }
 
-  //
+  // Search input
   .search {
     input {
       width: 160px;
 
+      //
       @media (max-width: 992px) {
         width: 100%;
+      }
+
+      //
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.712);
       }
     }
   }
 }
 
-//
+// Navbar collapse
 .navbar-collapse {
   //
   @media (max-width: 992px) {
@@ -172,4 +179,9 @@ button:focus {
 //
 .navbar-dark .navbar-toggler {
   border-color: var(--primary);
+}
+
+a.text-primary:hover,
+a.text-primary:focus {
+  color: white !important;
 }

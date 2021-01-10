@@ -3,6 +3,17 @@ html[dir="rtl"] body {
   direction: rtl;
   text-align: right;
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
+  p {
+    text-align: right;
+  }
+
   ///////////////////////////
   //// Other
   .head::after {
@@ -45,21 +56,22 @@ html[dir="rtl"] body {
 
   ///////////////////////////
   //// Slider
-  //
   .slick-slider .slick-track,
   .slick-slider .slick-list {
     direction: ltr;
   }
 
+  //
   .slick-slide {
     float: left;
   }
-
+  //
   .slick-dots li:not(:last-of-type) {
     margin-left: 15px;
     margin-right: auto;
   }
 
+  //
   .header-projects__info {
     right: 15%;
     left: auto;

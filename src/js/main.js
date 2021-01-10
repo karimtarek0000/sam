@@ -123,7 +123,43 @@ jQuery(function () {
     ],
   });
 
+  // Other projects slider
+  $(".other-projects__wrapper").slick({
+    lazyLoad: "progressive",
+    infinite: false,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    prevArrow: `<svg class='a-left prev slick-prev'>
+    <use xlink:href="../icons/sprite.svg#icon-angle-left">
+    </svg>`,
+    nextArrow: `<svg class='a-right next slick-next'>
+    <use xlink:href="../icons/sprite.svg#icon-angle-right">
+    </svg>`,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 793,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+    ],
+  });
+
   /////////////////////////////////////
+  const urlApi = `../api/${getLanguage}.json`;
   //// Section our projects
   //
   const elementSlider = {
@@ -142,7 +178,7 @@ jQuery(function () {
       // 2) For each all
       dataSlider.forEach((cur, index) => {
         // 1) Render img tag, and include data
-        const image = `<img src=${cur.img} class="obj-image" alt=${cur.name} />`;
+        const image = `<img src=${cur.img[0]} class="obj-image" alt=${cur.name} />`;
         // 2) Append image in slider
         elementSlider.wrapper.slick("slickAdd", image);
         // 3) Get index contains class active and get it index
@@ -171,18 +207,19 @@ jQuery(function () {
       // 4) When clicked in btn will be get data the current
       elementSlider.btn.on("click", (e) => {
         // 1) Get data with index the current slide, and convert to json
-        const data = JSON.stringify(dataSlider[indexDataArray]);
+        const data = dataSlider[indexDataArray]["id"];
         // 2) Finaly store data in localstorge
-        localStorage.setItem("project", data);
+        localStorage.setItem("projectId", data);
       });
     } catch (err) {
       alert("some error please try reload");
     }
   }
   // Run fn render data slider
-  renderDataSlider("../localizition/api.json");
+  renderDataSlider(urlApi);
 
-  //
+  /////////////////////////////////////
+  // Page Projects
   if (location.pathname.includes("project")) {
     //
     const elementProjects = {
@@ -190,19 +227,71 @@ jQuery(function () {
       location: $("#projectLocation"),
       date: $("#projectDate"),
       description: $("#projectDesc"),
+      wrapper1: $("#projectsWrapper"),
+      wrapper2: $("#otherProjectsWrapper"),
     };
     //
-    const getDataLocalStorage = JSON.parse(localStorage.getItem("project"));
-
+    const getDataLocalStorage = +localStorage.getItem("projectId") || 1;
     //
     if (getDataLocalStorage !== null) {
-      //
-      elementProjects.name.text(getDataLocalStorage.name);
-      elementProjects.location.text(getDataLocalStorage.city);
-      elementProjects.date.text(getDataLocalStorage.date);
-      elementProjects.description.text(getDataLocalStorage.description);
+      // 1) Get date from api
+      $.get(urlApi).done((data) => {
+        // 2) For each all data
+        $.each(data, (i, cur) => {
+          // 3) If cur.id equal getDateLocalStorage
+          if (cur.id === getDataLocalStorage) {
+            // 4) Add all date into each field
+            elementProjects.name.text(cur.name);
+            elementProjects.location.text(cur.city);
+            elementProjects.date.text(cur.date);
+            elementProjects.description.text(cur.description);
+
+            // 5) Render img tag, and include data
+            $.each(cur.img, (i, img) => {
+              const image = `<img src=${img} class="obj-image" alt=${cur.name} />`;
+              // 2) Append image in slider
+              elementProjects.wrapper1.slick("slickAdd", image);
+            });
+          } else {
+            // 1) Create card
+            const card = `
+                <div class="card-projects text-capitalize" key=${cur.id}>
+                    <div class="other-projects__wrapper__image">
+                        <img class="img-fluid obj-image" src=${cur.img[0]} alt=${cur.name} />
+                    </div>
+                    
+                    <h4 class="h-small weight-bold mt-2 mb-3">${cur.name}</h4>
+                    <p class="m-0 mb-1">${cur.city}</p>
+                    <p class="m-0">${cur.date}</p>
+                </div>
+            `;
+            // 2) Append image in slider
+            elementProjects.wrapper2.slick("slickAdd", card);
+          }
+        });
+      });
     }
   }
+
+  // Add event click on card products
+  $(document).on("click", ".card-projects", function () {
+    // 1) Get id from attributes => key
+    const getId = $(this).attr("key");
+
+    // 2) Update local storage => projectId
+    localStorage.setItem("projectId", getId);
+
+    // 3) Finaly animate scroll top 0, and callback function location reload
+    $("html, body").animate(
+      {
+        scrollTop: 0,
+      },
+      500,
+      function () {
+        location.reload();
+      }
+    );
+  });
   /////////////////////////////////////
   //// Section our partners
   // 1) Get count images

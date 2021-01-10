@@ -58,16 +58,105 @@
     </nav><!-- Header -->
     <header class="header-projects position-relative">
       <div class="header-projects__info position-absolute p-4 rounded text-primary">
-        <h3 class="h-mid text-uppercase weight-bold mb-3" id="projectName">project name</h3>
-        <p class="p-large text-capitalize m-0">location: <span id="projectLocation"></span></p>
-        <p class="p-large text-capitalize m-0">date: <span id="projectDate"></span></p>
+        <h3 class="h-mid text-uppercase weight-bold mb-3" id="projectName"></h3>
+        <p class="p-large text-capitalize m-0" id="projectLocation"></p>
+        <p class="p-large text-capitalize m-0" id="projectDate"></p>
       </div>
-      <div class="row no-gutters header-projects__wrapper h-100 overflow-hidden position-relative"><img class="img-fluid obj-image" src="./img/header/1.jpg" alt="1"/><img class="img-fluid obj-image" src="./img/header/1.jpg" alt="1"/><img class="img-fluid obj-image" src="./img/header/1.jpg" alt="1"/><img class="img-fluid obj-image" src="./img/header/1.jpg" alt="1"/></div>
+      <div class="header-projects__wrapper h-100 overflow-hidden position-relative" id="projectsWrapper"></div>
     </header>
-    <div class="container my-4 h-50">
-      <p class="first-letter p-mid weight-bold" id="projectDesc">BinQasem provides a platform on which you can offer objects to buyers in a range of countries worldwide. It is highly important for us that our platform is reliable and safe for both buyers and sellers, to guarantee the best possible customer experience and the best sales results. This requires you to accept and abide by the rules laid down in our Terms and Conditions. We want to take this opportunity to explain the most important rules for selling on BinQasem.</p>
+    <div class="container my-4 h-50 description">
+      <p class="first-letter p-mid weight-bold" id="projectDesc"></p>
     </div>
-    <main><!-- Section about us --></main>
+    <main><!-- Section other projects -->
+      <section class="other-projects mb-5">
+        <div class="container">
+                <h2 class="h-mid weight-bold text-uppercase mb-5 head text-blue-dark">other projects</h2>
+          <div class="other-projects__wrapper" id="otherProjectsWrapper"></div>
+        </div>
+      </section><!-- Section contact -->
+      <footer class="contacts" id="contactus">
+        <div class="row no-gutters container align-items-start justify-content-between h-100 py-2 py-lg-5 border-bottom border-gray">
+          <div class="col-md-12 col-lg-3 text-gray contacts__section-1"><a class="navbar-brand" href="/">
+                          <svg class="logo">
+                            <use xlink:href="./icons/sprite.svg#icon-logo">
+                              <title>logo</title>
+                            </use>
+                          </svg></a>
+            <p class="first-letter p-mid weight-normal mt-3 mt-lg-3">download the binqasem app and get notifications when new auctions start or if there's any update to your items.</p>
+            <div class="my-3 my-lg-5">
+              <p class="d-flex align-items-center">
+                            <svg class="resize-svg-contact">
+                              <use xlink:href="./icons/sprite.svg#icon-send">
+                                <title>send</title>
+                              </use>
+                            </svg>For Queries: info@androomeda.net
+              </p>
+              <p class="d-flex align-items-center">
+                            <svg class="resize-svg-contact">
+                              <use xlink:href="./icons/sprite.svg#icon-telephone">
+                                <title>telephone</title>
+                              </use>
+                            </svg>For call : 920012888
+              </p>
+            </div>
+            <div class="contacts__section-1__icons d-flex"><a class="d-flex align-items-center justify-content-center rounded-circle" href="#">
+                            <svg class="resize-svg-contact">
+                              <use xlink:href="./icons/sprite.svg#icon-map">
+                                <title>map</title>
+                              </use>
+                            </svg></a><a class="d-flex align-items-center justify-content-center rounded-circle" href="#">
+                            <svg class="resize-svg-contact">
+                              <use xlink:href="./icons/sprite.svg#icon-telephone">
+                                <title>telephone</title>
+                              </use>
+                            </svg></a><a class="d-flex align-items-center justify-content-center rounded-circle" href="#">
+                            <svg class="resize-svg-contact">
+                              <use xlink:href="./icons/sprite.svg#icon-facebook">
+                                <title>facebook</title>
+                              </use>
+                            </svg></a><a class="d-flex align-items-center justify-content-center rounded-circle" href="#">
+                            <svg class="resize-svg-contact">
+                              <use xlink:href="./icons/sprite.svg#icon-twitter">
+                                <title>twitter</title>
+                              </use>
+                            </svg></a><a class="d-flex align-items-center justify-content-center rounded-circle" href="#">
+                            <svg class="resize-svg-contact">
+                              <use xlink:href="./icons/sprite.svg#icon-instagram">
+                                <title>instagram</title>
+                              </use>
+                            </svg></a></div>
+          </div>
+          <div class="col-md-4 col-lg-3 contacts__section-2 mt-3 mt-lg-4">
+                  <h4 class="h-xsmall weight-bold text-primary text-capitalize mb-2 mb-lg-4">popular searches</h4>
+                  <ul></ul>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">mobiles, electronic devices &amp; accessories</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">cars, trucks and bicycles</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">books &amp; novels</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">furniture &amp; home appliances</li>
+          </div>
+          <div class="col-md-3 col-lg-2 contacts__section-3 mt-3 mt-lg-4">
+                  <h4 class="h-xsmall weight-bold text-primary text-capitalize mb-2 mb-lg-4">auctions</h4>
+                  <ul></ul>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">exceptional products</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">featured auctions</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">recently added auctions</li>
+          </div>
+          <div class="col-md-3 col-lg-2 contacts__section-4 mt-3 mt-lg-4">
+                  <h4 class="h-xsmall weight-bold text-primary text-capitalize mb-2 mb-lg-4">about binqasem</h4>
+                  <ul></ul>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">about us</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">why so</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">become a seller</li>
+                  <li class="list-unstyled text-gray weight-normal text-uppercase mb-2 mb-lg-3 p-small">how auctions work</li>
+          </div>
+        </div>
+        <div class="row no-gutters container py-3">
+          <div class="col text-center text-lg-right">
+            <p class="text-gray text-uppercase m-0">copyright © <span id="year">2020</span> <a href="/">sam</a></p>
+          </div>
+        </div>
+      </footer>
+    </main>
     <script src="./js/library/jquery.3.5.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
