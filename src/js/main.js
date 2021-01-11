@@ -54,7 +54,7 @@ jQuery(function () {
           localStorage.removeItem("sectionName");
         }
       );
-    }, 500);
+    }, 1000);
   }
 
   /////////////////////////////////////
