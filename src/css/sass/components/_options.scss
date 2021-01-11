@@ -1,0 +1,63 @@
+%extend {
+  position: fixed;
+  z-index: 9999;
+}
+
+// 1) Change lang
+.change-lang {
+  top: 25%;
+  right: 0;
+  height: 40px;
+  width: 55px;
+  @extend %extend;
+
+  //
+  &__icon {
+    top: 50%;
+    right: 2px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  //
+  svg {
+    fill: black;
+    display: block;
+    width: 20px;
+    height: 10px;
+  }
+
+  //
+  & select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    padding-inline-end: 20px;
+  }
+}
+
+// 2) Icons whatsapp
+.whatsapp {
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  bottom: 20px;
+  right: 20px;
+  transition: transform 0.3s ease;
+  @extend %extend;
+
+  //
+  @media (max-width: 600px) {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  //
+  &:hover {
+    //
+    @media (hover: hover) {
+      transform: scale(1.2);
+    }
+  }
+}

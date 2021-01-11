@@ -55,15 +55,15 @@ jQuery(function () {
     });
   }
   //
-  const getLanguage = localStorage.getItem("language");
+  let getLanguage = localStorage.getItem("language");
   // If there local storage in site with name language will be render language site with in the same language if not will be render language site with selected lang from select box
   if (getLanguage !== null) {
     changeSelectLang(getLanguage);
     renderLanguage(getLanguage);
   } else {
-    const getLang = $(".change_lang").val();
-    renderLanguage(getLang);
-    changeSelectLang(getLang);
+    getLanguage = $(".change_lang").val();
+    renderLanguage(getLanguage);
+    changeSelectLang(getLanguage);
   }
 
   /////////////////////////////////////
