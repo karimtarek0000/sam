@@ -43,16 +43,18 @@ jQuery(function () {
 
   // 2) Check if pathname home, and localStorage not equal null will be run all action
   if (location.pathname == "/" && getSectionName !== null) {
-    $("html, body").animate(
-      {
-        scrollTop: $(`#${getSectionName}`).offset().top - 20,
-      },
-      1000,
-      () => {
-        // Finaly remove sectionName from localStorage
-        localStorage.removeItem("sectionName");
-      }
-    );
+    setTimeout(() => {
+      $("html, body").animate(
+        {
+          scrollTop: $(`#${getSectionName}`).offset().top - 20,
+        },
+        1000,
+        () => {
+          // Finaly remove sectionName from localStorage
+          localStorage.removeItem("sectionName");
+        }
+      );
+    }, 500);
   }
 
   /////////////////////////////////////
