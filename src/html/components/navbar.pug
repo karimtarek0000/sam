@@ -12,4 +12,4 @@ nav.navbar.navbar-expand-lg.navbar-dark
             ul(class="navbar-nav")
                 each item in items
                     li.nav-item
-                        a(class='nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1' class=item == titlePage ? 'active' : '' data-section=item.replace(' ', '') href="#")=item
+                        a(class='nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1' class=item == titlePage ? 'active' : '' data-section=item.replace(' ', '') key=item href=item == 'home'? '/' : item)=item

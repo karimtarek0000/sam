@@ -3,18 +3,20 @@ jQuery(function () {
   //// Navbar
   $(".nav-link").on("click", function (e) {
     // 1) Prevent default
-    e.preventDefault();
-    // 2) Get the attr section
-    const attrSection = $(this).data("section");
-    // 3) Remove class show when click link
-    $(this).parentsUntil("navbar-collapse").removeClass("show");
-    // 4) Animate to the section
-    $("html, body").animate(
-      {
-        scrollTop: $(`#${attrSection}`).offset().top - 20,
-      },
-      1000
-    );
+    if ($(this).attr("key") !== "home") {
+      e.preventDefault();
+      // 2) Get the attr section
+      const attrSection = $(this).data("section");
+      // 3) Remove class show when click link
+      $(this).parentsUntil("navbar-collapse").removeClass("show");
+      // 4) Animate to the section
+      $("html, body").animate(
+        {
+          scrollTop: $(`#${attrSection}`).offset().top - 20,
+        },
+        1000
+      );
+    }
   });
 
   /////////////////////////////////////
@@ -129,8 +131,6 @@ jQuery(function () {
     infinite: false,
     slidesToShow: 3,
     slidesToScroll: 3,
-    autoplay: true,
-    autoplaySpeed: 5000,
     prevArrow: `<svg class='a-left prev slick-prev'>
     <use xlink:href="../icons/sprite.svg#icon-angle-left">
     </svg>`,

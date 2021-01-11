@@ -72,41 +72,6 @@
   }
 }
 
-// Change lang
-.change-lang {
-  position: fixed;
-  top: 25%;
-  right: 0;
-  height: 40px;
-  width: 55px;
-  z-index: 9999;
-
-  //
-  &__icon {
-    top: 50%;
-    right: 2px;
-    transform: translateY(-50%);
-    pointer-events: none;
-  }
-
-  //
-  svg {
-    fill: black;
-    display: block;
-    width: 20px;
-    height: 10px;
-  }
-
-  //
-  & select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-    padding-inline-end: 20px;
-  }
-}
-
 /////////////////////////////
 //// Other
 // Head

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/style.css"/>
     <title>home</title>
   </head>
-  <body><!-- Navbar -->
+  <body><!-- Options --><!-- Change lang -->
     <div class="form-group change-lang m-0 cursor mt-3 mt-lg-0 mx-0 mx-md-2 shrink-0">
       <div class="change-lang__icon position-absolute">
             <svg class="resize-svg grow-0 shrink-0">
@@ -26,7 +26,13 @@
         <option class="change_lang" selected="selected" value="en">en</option>
         <option class="change_lang" value="ar">ar</option>
       </select>
-    </div><!-- Navbar -->
+    </div><!-- Icon whats app -->
+    <div class="whatsapp d-flex justify-content-center align-items-center cursor rounded-circle"><a href="https://wa.me/000000000000" target="_blank">
+            <svg class="resize-svg-whatsapp">
+              <use xlink:href="./icons/sprite.svg#icon-whatsapp">
+                <title>whatsapp</title>
+              </use>
+            </svg></a></div><!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container"><a class="navbar-brand" href="/">
                   <svg class="logo">
@@ -37,11 +43,11 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1 active" data-section="home" href="#">home</a></li>
-            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="aboutus" href="#">about us</a></li>
-            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="projects" href="#">projects</a></li>
-            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="partners" href="#">partners</a></li>
-            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="contactus" href="#">contact us</a></li>
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1 active" data-section="home" key="home" href="/">home</a></li>
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="aboutus" key="about us" href="about us">about us</a></li>
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="projects" key="projects" href="projects">projects</a></li>
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="partners" key="partners" href="partners">partners</a></li>
+            <li class="nav-item"><a class="nav-link weight-normal cursor text-capitalize text-primary py-2 px-2 py-lg-3 px-lg-3 mx-1" data-section="contactus" key="contact us" href="contact us">contact us</a></li>
           </ul>
         </div>
       </div>
@@ -60,7 +66,7 @@
           <div class="col-lg-6 d-flex align-items-center">
             <div class="about-us__info">
               <h2 class="h-mid weight-bold text-uppercase mb-5 head">about us</h2>
-              <p class="first-letter p-mid my-4 weight-normal cut-word">binqasem provides a platform on which you can offer objects to buyers in a range of countries worldwide. It is highly important for us that our platform is reliable and safe for both buyers and sellers, to guarantee the best possible customer experience and the best sales results. This requires you to accept and abide by the rules laid down in our terms and conditions. We want to take this opportunity to explain the most important rules for selling on binqasem.</p><a class="btn btn-blue-dark rounded-0 px-5 more py-2 text-uppercase weight-normal" href="#" target="_blank">view more</a>
+              <p class="first-letter p-mid my-4 weight-normal cut-word">binqasem provides a platform on which you can offer objects to buyers in a range of countries worldwide. It is highly important for us that our platform is reliable and safe for both buyers and sellers, to guarantee the best possible customer experience and the best sales results. This requires you to accept and abide by the rules laid down in our terms and conditions. We want to take this opportunity to explain the most important rules for selling on binqasem.</p><a class="btn btn-blue-dark rounded-0 px-5 more py-2 text-uppercase weight-normal" href="#">view more</a>
             </div>
           </div>
         </div>
@@ -71,7 +77,7 @@
             <div class="our-projects__info">
                     <h2 class="h-mid weight-bold text-uppercase mb-5 head">our projects</h2>
               <h3 class="h-small text-capitalize my-4 weight-bold" id="head"></h3>
-              <p class="first-letter text-light-darken weight-normal cut-word" id="par"></p><a class="btn btn-primary px-5 py-2 rounded-0 text-uppercase weight-normal" href="/projects" target="_blank" id="viewMoreProject">view more</a>
+              <p class="first-letter text-light-darken weight-normal cut-word" id="par"></p><a class="btn btn-primary px-5 py-2 rounded-0 text-uppercase weight-normal" href="/projects" id="viewMoreProject">view more</a>
             </div>
           </div>
           <div class="col-lg-6 our-projects__images order-0 order-lg-1">
