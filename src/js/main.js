@@ -1,23 +1,59 @@
 jQuery(function () {
   /////////////////////////////////////
   //// Navbar
+  //
   $(".nav-link").on("click", function (e) {
-    // 1) Prevent default
+    // Check if this key not equal home will be run all action
     if ($(this).attr("key") !== "home") {
+      // 1) Prevent default
       e.preventDefault();
+
       // 2) Get the attr section
       const attrSection = $(this).data("section");
+
       // 3) Remove class show when click link
       $(this).parentsUntil("navbar-collapse").removeClass("show");
-      // 4) Animate to the section
-      $("html, body").animate(
-        {
-          scrollTop: $(`#${attrSection}`).offset().top - 20,
-        },
-        1000
-      );
+
+      // 4) Set the section in variable
+      const section = $(`#${attrSection}`);
+
+      // 5) Check if this link exsist will be run all action
+      if (Object.keys(section).length !== 0) {
+        // 1) Animate to the section
+        $("html, body").animate(
+          {
+            scrollTop: section.offset().top - 20,
+          },
+          1000
+        );
+      } else {
+        // 1) Set item in localStorage
+        localStorage.setItem("sectionName", attrSection);
+        // 2) Replace page to home
+        location.assign("/");
+      }
     }
   });
+
+  /////////////////////////////////////
+  //// Get section name, and scroll to the section in the same name from the localStorage
+  //
+  // 1) Get sction name from localStorage
+  const getSectionName = localStorage.getItem("sectionName");
+
+  // 2) Check if pathname home, and localStorage not equal null will be run all action
+  if (location.pathname == "/" && getSectionName !== null) {
+    $("html, body").animate(
+      {
+        scrollTop: $(`#${getSectionName}`).offset().top - 20,
+      },
+      1000,
+      () => {
+        // Finaly remove sectionName from localStorage
+        localStorage.removeItem("sectionName");
+      }
+    );
+  }
 
   /////////////////////////////////////
   //// Change lang
@@ -335,4 +371,6 @@ jQuery(function () {
   /////////////////////////////////////
   //// Footer
   $("#year").text(new Date().getFullYear());
+
+  //
 });
