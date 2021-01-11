@@ -4,19 +4,21 @@
 .navbar {
   background-image: linear-gradient(
     to bottom,
-    rgba(46, 53, 61, 0.74) 40%,
-    rgba(74, 83, 93, 0.58) 71%,
-    rgba(103, 114, 125, 0.41)
+    rgba(74, 83, 93, 0.404) 71%,
+    rgba(103, 114, 125, 0.219)
   );
 
   //
   @media (max-width: 992px) {
     background-image: linear-gradient(
       to bottom,
-      rgb(46, 53, 61) 40%,
-      rgb(74, 83, 93) 71%,
+      rgb(74, 83, 93) 98%,
       rgb(103, 114, 125)
     );
+  }
+
+  @media (min-width: 992px) {
+    padding: 0 2px;
   }
 
   position: absolute;
@@ -44,21 +46,9 @@
     font-weight: 500;
   }
 
-  // Search input
-  .search {
-    input {
-      width: 160px;
-
-      //
-      @media (max-width: 992px) {
-        width: 100%;
-      }
-
-      //
-      &::placeholder {
-        color: rgba(255, 255, 255, 0.712);
-      }
-    }
+  //
+  &-nav {
+    margin-left: auto;
   }
 }
 
@@ -82,35 +72,15 @@
   }
 }
 
-// Form control
-.form-control {
-  background-color: transparent;
-
-  //
-  input {
-    font-family: inherit;
-  }
-
-  //
-  &::placeholder {
-    color: darkeen(map-get($theme-colors, primary), 2%);
-    font-family: inherit;
-  }
-  //
-  &:focus {
-    background-color: inherit;
-    outline: none;
-    box-shadow: none;
-  }
-}
-
 // Change lang
 .change-lang {
-  width: 60px;
+  position: fixed;
+  top: 25%;
+  right: 0;
+  height: 40px;
+  width: 55px;
+  z-index: 9999;
 
-  @media (max-width: 992px) {
-    width: 100%;
-  }
   //
   &__icon {
     top: 50%;
