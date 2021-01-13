@@ -43,14 +43,14 @@
   background-color: transparent;
   bottom: 20px;
   left: 20px;
-  z-index: 9999;
+  z-index: 10000;
 
   // Popup
   &__popup {
     width: 351px;
     bottom: 90px;
     left: 0;
-    z-index: 9999;
+    z-index: 10000;
     transform: translateY(50px);
     opacity: 0;
     pointer-events: none;
