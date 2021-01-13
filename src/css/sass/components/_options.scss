@@ -39,10 +39,11 @@
 
 // 2) Icons whatsapp
 .whatsapp {
+  position: fixed;
   background-color: transparent;
   bottom: 20px;
   left: 20px;
-
+  z-index: 9999;
   // Popup
   &__popup {
     width: 351px;
