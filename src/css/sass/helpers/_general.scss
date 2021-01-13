@@ -121,3 +121,16 @@ a.text-primary:hover,
 a.text-primary:focus {
   color: white !important;
 }
+
+a.text-gray:hover,
+a.text-gray:focus {
+  text-decoration: none;
+  color: var(--gray) !important;
+}
+
+a.bg-light:hover,
+a.bg-light:focus,
+button.bg-light:hover,
+button.bg-light:focus {
+  background-color: var(--light) !important;
+}

@@ -32,12 +32,45 @@
         <option class="change_lang" value="ar">ar</option>
       </select>
     </div><!-- Icon whats app -->
-    <div class="whatsapp d-flex justify-content-center align-items-center cursor rounded-circle"><a href="https://wa.me/000000000000" target="_blank">
-            <svg class="resize-svg-whatsapp">
+    <div class="whatsapp d-flex justify-content-center align-items-center position-absolute" id="whatsapp">
+      <div class="whatsapp__popup position-absolute rounded overflow-hidden">
+        <div class="whatsapp__popup__welcome d-flex p-3">
+          <div class="whatsapp__popup__welcome__info text-primary">
+            <h5>Start a Conversation</h5>
+            <p class="first-letter p-xsmall">hi! click one of our member below to chat on whatsApp</p>
+          </div>
+              <svg class="resize-svg-whatsapp mx-2">
+                <use xlink:href="./icons/sprite.svg#icon-whatsapp">
+                  <title>whatsapp</title>
+                </use>
+              </svg>
+        </div>
+        <div class="whatsapp__popup__chat bg-primary overflow-hidden py-4 px-3">
+          <p class="first-letter p-xsmall text-gray">the team typically replies in a few minutes.</p><a class="whatsapp__popup__chat__open rounded d-flex align-items-center py-3 mx-auto justify-content-between bg-light text-gray text-uppercase weight-bolder p-2" href="https://wa.me/000000000" target="_blank">
+            <p class="m-0 text-uppercase">sam constructions</p>
+                <svg class="resize-svg-whatsapp">
+                  <use xlink:href="./icons/sprite.svg#icon-whatsapp">
+                    <title>whatsapp</title>
+                  </use>
+                </svg></a>
+        </div>
+      </div>
+      <div class="whatsapp__icon rounded-circle d-flex justify-content-center align-items-center cursor" id="whatsappPopUp">
+            <svg class="resize-svg-whatsapp position-absolute whatsapp__icon__whatsapp">
               <use xlink:href="./icons/sprite.svg#icon-whatsapp">
                 <title>whatsapp</title>
               </use>
-            </svg></a></div><!-- Navbar -->
+            </svg>
+            <svg class="resize-svg-whatsapp position-absolute whatsapp__icon__close">
+              <use xlink:href="./icons/sprite.svg#icon-close">
+                <title>close</title>
+              </use>
+            </svg>
+      </div>
+      <div class="whatsapp__title bg-primary ml-2 py-1 px-3 rounded">
+        <p class="text-capitalize p-small m-0 p-xsmall">need help? <span class="weight-bolder">chat with us</span></p>
+      </div>
+    </div><!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container"><a class="navbar-brand" href="/">
                   <svg class="logo">

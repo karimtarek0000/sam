@@ -2,7 +2,29 @@
 include ./svg
 
 //- 
-.whatsapp.d-flex.justify-content-center.align-items-center.cursor.rounded-circle
+.whatsapp.d-flex.justify-content-center.align-items-center.position-absolute#whatsapp
 
-    a(href="https://wa.me/000000000000" target="_blank")
-        +getSvgIcon('whatsapp', 'resize-svg-whatsapp')
+        .whatsapp__popup.position-absolute.rounded.overflow-hidden
+
+            .whatsapp__popup__welcome.d-flex.p-3
+                div.whatsapp__popup__welcome__info.text-primary
+                    h5 Start a Conversation
+                    p.first-letter.p-xsmall hi! click one of our member below to chat on whatsApp
+                +getSvgIcon('whatsapp', 'resize-svg-whatsapp mx-2')
+
+            div.whatsapp__popup__chat.bg-primary.overflow-hidden.py-4.px-3
+                p.first-letter.p-xsmall.text-gray the team typically replies in a few minutes.
+
+
+                a(class="whatsapp__popup__chat__open rounded d-flex align-items-center py-3 mx-auto justify-content-between bg-light text-gray text-uppercase weight-bolder p-2" href="https://wa.me/000000000" target="_blank")
+                    p.m-0.text-uppercase sam constructions
+                    +getSvgIcon('whatsapp', 'resize-svg-whatsapp')
+
+
+
+        .whatsapp__icon.rounded-circle.d-flex.justify-content-center.align-items-center.cursor#whatsappPopUp
+            +getSvgIcon('whatsapp', 'resize-svg-whatsapp position-absolute whatsapp__icon__whatsapp')
+            +getSvgIcon('close', 'resize-svg-whatsapp position-absolute whatsapp__icon__close')
+
+        .whatsapp__title.bg-primary.ml-2.py-1.px-3.rounded
+            p.text-capitalize.p-small.m-0.p-xsmall need help? !{'<span class="weight-bolder">chat with us</span>'}

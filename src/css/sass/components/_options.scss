@@ -39,25 +39,101 @@
 
 // 2) Icons whatsapp
 .whatsapp {
-  width: 45px;
-  height: 45px;
-  background-color: white;
+  background-color: transparent;
   bottom: 20px;
-  right: 20px;
-  transition: transform 0.3s ease;
-  @extend %extend;
+  left: 20px;
 
+  // Popup
+  &__popup {
+    width: 351px;
+    bottom: 90px;
+    left: 0;
+    z-index: 9999;
+    transform: translateY(50px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+
+    @media (max-width: 600px) {
+      width: 270px;
+    }
+    //
+    &__welcome {
+      background-color: var(--whatsapp);
+    }
+
+    //
+    &__chat {
+      //
+      svg {
+        fill: var(--whatsapp);
+      }
+      //
+      &__open {
+        border-width: 0 2px;
+        border-style: solid;
+        border-color: var(--whatsapp);
+        transform: translateY(50px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.5s 0.3s ease;
+        will-change: all;
+      }
+    }
+  }
+
+  // Icon
+  &__icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--whatsapp);
+    // General svg
+    svg {
+      transition: all 0.5s ease;
+      will-change: all;
+    }
+
+    // icon Whatsapp
+    &__whatsapp {
+      transition: all 0.5s ease-in-out;
+    }
+
+    // icon Close
+    &__close {
+      opacity: 0;
+      transition: all 0.2s 1s ease-in-out;
+    }
+  }
+
+  // Title
+  &__title {
+    transition: all 0.5s ease;
+  }
+
+  ////////////////////////////
+  //// Classes toggle
   //
-  @media (max-width: 600px) {
-    bottom: 10px;
-    right: 10px;
+  .hideIcon {
+    transform: rotate(-360deg) scale(0);
+    opacity: 0;
+    transform-origin: center;
   }
 
   //
-  &:hover {
-    //
-    @media (hover: hover) {
-      transform: scale(1.2);
-    }
+  .visibleIcon {
+    transform: rotate(-180deg);
+    opacity: 1;
+    transform-origin: center;
+  }
+
+  .moveDown {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  .moveUp {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
   }
 }

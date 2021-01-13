@@ -374,5 +374,11 @@ jQuery(function () {
   //// Footer
   $("#year").text(new Date().getFullYear());
 
-  //
+  // Whatsapp popup
+  $("#whatsapp").on("click", function () {
+    $(".whatsapp__icon__whatsapp").toggleClass("hideIcon");
+    $(".whatsapp__icon__close").toggleClass("visibleIcon");
+    $(".whatsapp__title").toggleClass("moveDown");
+    $(".whatsapp__popup, .whatsapp__popup__chat__open").toggleClass("moveUp");
+  });
 });
