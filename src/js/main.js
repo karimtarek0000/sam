@@ -1,6 +1,6 @@
 jQuery(function () {
   /////////////////////////////////////
-  //// Navbar
+  //// 1) Navbar
   //
   $(".nav-link").on("click", function (e) {
     // Check if this key not equal home will be run all action
@@ -58,7 +58,7 @@ jQuery(function () {
   }
 
   /////////////////////////////////////
-  //// Change lang
+  //// 2) Change lang
   // 1) Render language
   async function renderLanguage(getLang) {
     // 2) Get data
@@ -105,7 +105,7 @@ jQuery(function () {
   }
 
   /////////////////////////////////////
-  ///// Section about us
+  ///// 3) Section about us
   // More Paragraph
   $(".more").on("click", function (e) {
     // 1) Prevent default anchor
@@ -215,8 +215,8 @@ jQuery(function () {
   // Section our projects
   const elementSlider = {
     wrapper: $(".our-projects__wrapper"),
-    head: $("#head"),
-    par: $("#par"),
+    name: $("#head"),
+    description: $("#par"),
     btn: $("#viewMoreProject"),
   };
 
@@ -240,8 +240,8 @@ jQuery(function () {
 
         // 4) If indes === index active class / will be render paragraph from this index
         if (index == indexActiveClass) {
-          elementSlider.head.text(cur[namesFromApi.name]);
-          elementSlider.par.text(cur[namesFromApi.description]);
+          elementSlider.name.text(cur[namesFromApi.name]);
+          elementSlider.description.text(cur[namesFromApi.description]);
         }
       });
 
@@ -251,14 +251,14 @@ jQuery(function () {
       // 4) After change slider
       elementSlider.wrapper.on("afterChange", function () {
         // 1) Get current index after change slider
-        var indexCurrentSlide = $(".slick-current").attr("data-slick-index");
+        const indexCurrentSlide = $(".slick-current").attr("data-slick-index");
 
         // 2) Update var => indexDataArray equal indexCurrentSlide
         indexDataArray = indexCurrentSlide;
 
         // 3) Change head, and par with index data from API
-        elementSlider.head.text(Data[indexCurrentSlide][namesFromApi.name]);
-        elementSlider.par.text(
+        elementSlider.name.text(Data[indexCurrentSlide][namesFromApi.name]);
+        elementSlider.description.text(
           Data[indexCurrentSlide][namesFromApi.description]
         );
       });
@@ -359,7 +359,7 @@ jQuery(function () {
   renderDataSlider(API.apiAllProjects);
 
   /////////////////////////////////////
-  //// Section our partners
+  //// 4) Section our partners
   // 1) Get count images
   function showAndHidden(timer) {
     const countImages = $("#partners__image").children().length;
@@ -399,11 +399,11 @@ jQuery(function () {
   }
 
   /////////////////////////////////////
-  //// Footer
+  //// 5) Footer
   $("#year").text(new Date().getFullYear());
 
   /////////////////////////////////////
-  // Whatsapp popup
+  ///// 6) Whatsapp popup
   $("#whatsapp").on("click", function () {
     $(".whatsapp__icon__whatsapp").toggleClass("hideIcon");
     $(".whatsapp__icon__close").toggleClass("visibleIcon");
