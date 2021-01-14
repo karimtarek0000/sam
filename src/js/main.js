@@ -71,10 +71,16 @@ jQuery(function () {
     }
 
     // Navbar links
-    // $(".navbar-nav a").each((i, cur) =>
-    //   $(cur).text(localizition.navbar[$(cur).attr("key")])
-    // );
+    $(".navbar-nav a").each((i, cur) =>
+      $(cur).text(localizition.navbar[$(cur).attr("key")])
+    );
+
+    // heading, button
+    $(".heading, .button").each((i, cur) => {
+      $(cur).text(localizition.pages[$(cur).attr("key")][$(cur).data("lang")]);
+    });
   }
+
   // 2) When change lang
   $(".change_lang").on("change", function () {
     // 1) Get new value from select element
@@ -92,6 +98,7 @@ jQuery(function () {
       }
     });
   }
+
   //
   let getLanguage = localStorage.getItem("language");
   // If there local storage in site with name language will be render language site with in the same language if not will be render language site with selected lang from select box
@@ -120,7 +127,7 @@ jQuery(function () {
     } else {
       $("html").attr("dir") === "ltr"
         ? $(this).text("view more")
-        : $(this).text("المزيــــد");
+        : $(this).text("شاهد المزيــــد");
     }
   });
 
@@ -199,8 +206,10 @@ jQuery(function () {
   /////////////////////////////////////
   // All API
   const API = {
-    apiAllProjects: `https://cors-anywhere.herokuapp.com/https://sam-construction.com/sam/api/projects`,
-    apiProject: `https://cors-anywhere.herokuapp.com/https://sam-construction.com/sam/api/projects/`,
+    apiAllProjects: "https://sam-construction.com/sam/api/projects",
+    apiProject: "https://sam-construction.com/sam/api/projects/",
+    apiAboutUs: "https://sam-construction.com/sam/api/pages/1",
+    apiPartners: "https://sam-construction.com/sam/api/partners",
   };
 
   // All names into api
@@ -210,7 +219,32 @@ jQuery(function () {
     description: "project_description",
     date: "year",
     city: "city",
+    titleAboutUs: "page_title",
+    descAboutUs: "page_body",
   };
+
+  // Global ajax setup
+  $.ajaxSetup({
+    headers: {
+      Accept: "application/json",
+      "Accept-Language": getLanguage,
+    },
+  });
+
+  // Section about us
+  function renderDataAboutUs(url) {
+    // 1) All element
+    const element = {
+      title: $("#titleAboutUs"),
+      description: $("#descAboutUs"),
+    };
+
+    // 2) Get data from api
+    $.get(url).then(({ Data }) => {
+      element.title.text(Data[namesFromApi.titleAboutUs]);
+      element.description.text(Data[namesFromApi.descAboutUs]);
+    });
+  }
 
   // Section our projects
   const elementSlider = {
@@ -220,59 +254,77 @@ jQuery(function () {
     btn: $("#viewMoreProject"),
   };
 
-  // Async function render data slider
-  async function renderDataSlider(url) {
-    try {
-      // 1) Get data from api
-      const { Data } = await $.get(url);
+  // Section our projects => Function render data slider
+  function renderDataSlider(url) {
+    // 1) Get data from api
+    $.get(url)
+      .then(({ Data }) => {
+        // 1) For each all
+        Data.forEach((cur, index) => {
+          // 1) Render img tag, and include data
+          const image = `<img src=${cur.image} class="obj-image" alt=${
+            cur[namesFromApi.name]
+          } />`;
+          // 2) Append image in slider
+          elementSlider.wrapper.slick("slickAdd", image);
 
-      // 2) For each all
-      Data.forEach((cur, index) => {
-        // 1) Render img tag, and include data
-        const image = `<img src=${cur.image} class="obj-image" alt=${
-          cur[namesFromApi.name]
-        } />`;
-        // 2) Append image in slider
-        elementSlider.wrapper.slick("slickAdd", image);
+          // 3) Get index contains class active and get it index
+          const indexActiveClass = $(".slick-current").attr("data-slick-index");
 
-        // 3) Get index contains class active and get it index
-        const indexActiveClass = $(".slick-current").attr("data-slick-index");
+          // 4) If indes === index active class / will be render paragraph from this index
+          if (index == indexActiveClass) {
+            elementSlider.name.text(cur[namesFromApi.name]);
+            elementSlider.description.text(cur[namesFromApi.description]);
+          }
+        });
 
-        // 4) If indes === index active class / will be render paragraph from this index
-        if (index == indexActiveClass) {
-          elementSlider.name.text(cur[namesFromApi.name]);
-          elementSlider.description.text(cur[namesFromApi.description]);
-        }
+        // 2) Get id after changed
+        let indexDataArray = $(".slick-dots li.slick-active").index();
+
+        // 3) After change slider
+        elementSlider.wrapper.on("afterChange", function () {
+          // 1) Get current index after change slider
+          const indexCurrentSlide = $(".slick-current").attr(
+            "data-slick-index"
+          );
+
+          // 2) Update var => indexDataArray equal indexCurrentSlide
+          indexDataArray = indexCurrentSlide;
+
+          // 3) Change head, and par with index data from API
+          elementSlider.name.text(Data[indexCurrentSlide][namesFromApi.name]);
+          elementSlider.description.text(
+            Data[indexCurrentSlide][namesFromApi.description]
+          );
+        });
+
+        // 4) When clicked in btn will be get data the current
+        elementSlider.btn.on("click", (e) => {
+          // 1) Get data with index the current slide, and convert to json
+          const data = Data[indexDataArray][namesFromApi.id];
+          // 2) Finaly store data in localstorge
+          localStorage.setItem("projectId", data);
+        });
+      })
+      .catch((err) => {
+        alert("some errors please try reload this page");
       });
+  }
 
-      // 3) Get id after changed
-      let indexDataArray = $(".slick-dots li.slick-active").index();
-
-      // 4) After change slider
-      elementSlider.wrapper.on("afterChange", function () {
-        // 1) Get current index after change slider
-        const indexCurrentSlide = $(".slick-current").attr("data-slick-index");
-
-        // 2) Update var => indexDataArray equal indexCurrentSlide
-        indexDataArray = indexCurrentSlide;
-
-        // 3) Change head, and par with index data from API
-        elementSlider.name.text(Data[indexCurrentSlide][namesFromApi.name]);
-        elementSlider.description.text(
-          Data[indexCurrentSlide][namesFromApi.description]
-        );
+  // Section partners => Function render data part
+  function renderDataPartners(url) {
+    //
+    $.get(url).done(({ Data }) => {
+      $.each(Data, (i, cur) => {
+        console.log(cur.image);
+        const createImage = `
+          <div class="col-6 col-md-2 partners__all-partners__image py-3 overflow-hidden">
+              <img src=${cur.image} alt=${cur.name} />
+          </div>
+        `;
+        $("#partners__image").append(createImage);
       });
-
-      // 5) When clicked in btn will be get data the current
-      elementSlider.btn.on("click", (e) => {
-        // 1) Get data with index the current slide, and convert to json
-        const data = Data[indexDataArray][namesFromApi.id];
-        // 2) Finaly store data in localstorge
-        localStorage.setItem("projectId", data);
-      });
-    } catch (err) {
-      alert("some error please try reload");
-    }
+    });
   }
 
   /////////////////////////////////////
@@ -357,6 +409,10 @@ jQuery(function () {
 
   // Run fn render data slider
   renderDataSlider(API.apiAllProjects);
+  // Run fn render data about us
+  renderDataAboutUs(API.apiAboutUs);
+  // Run fn render data partners
+  renderDataPartners(API.apiPartners);
 
   /////////////////////////////////////
   //// 4) Section our partners

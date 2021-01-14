@@ -2,22 +2,15 @@
   "navbar": {
     "home": "home",
     "aboutus": "about us",
-    "services": "services",
-    "works": "works",
-    "price": "price",
-    "blog": "blog",
-    "contacts": "contacts"
+    "projects": "projects",
+    "partners": "partners",
+    "contacts": "contacts us"
   },
   "pages": {
-    "contacts": {
-      "form": {
-        "phone": "*Phone number",
-        "email": "E-mail address",
-        "textArea": "*Tell us about the project",
-        "labelOne": "fill out the form and we'll be in touch soon!",
-        "labelTwo": "what are you interested in?",
-        "submit": "send an application"
-      }
+    "home": {
+      "btn-2": "view more",
+      "head-2": "our projects",
+      "head-3": "our partners"
     }
   }
 }
