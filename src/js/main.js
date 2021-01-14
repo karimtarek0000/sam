@@ -316,7 +316,6 @@ jQuery(function () {
     //
     $.get(url).done(({ Data }) => {
       $.each(Data, (i, cur) => {
-        console.log(cur.image);
         const createImage = `
           <div class="col-6 col-md-2 partners__all-partners__image py-3 overflow-hidden">
               <img src=${cur.image} alt=${cur.name} />
