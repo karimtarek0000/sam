@@ -197,9 +197,22 @@ jQuery(function () {
   });
 
   /////////////////////////////////////
-  const urlApi = `../api/${getLanguage}.json`;
-  //// Section our projects
-  //
+  // All API
+  const API = {
+    apiAllProjects: `https://cors-anywhere.herokuapp.com/https://sam-construction.com/sam/api/projects`,
+    apiProject: `https://cors-anywhere.herokuapp.com/https://sam-construction.com/sam/api/projects/`,
+  };
+
+  // All names into api
+  const namesFromApi = {
+    id: "project_id",
+    name: "project_name",
+    description: "project_description",
+    date: "year",
+    city: "city",
+  };
+
+  // Section our projects
   const elementSlider = {
     wrapper: $(".our-projects__wrapper"),
     head: $("#head"),
@@ -211,41 +224,49 @@ jQuery(function () {
   async function renderDataSlider(url) {
     try {
       // 1) Get data from api
-      const dataSlider = await $.get(url);
+      const { Data } = await $.get(url);
 
       // 2) For each all
-      dataSlider.forEach((cur, index) => {
+      Data.forEach((cur, index) => {
         // 1) Render img tag, and include data
-        const image = `<img src=${cur.img[0]} class="obj-image" alt=${cur.name} />`;
+        const image = `<img src=${cur.image} class="obj-image" alt=${
+          cur[namesFromApi.name]
+        } />`;
         // 2) Append image in slider
         elementSlider.wrapper.slick("slickAdd", image);
+
         // 3) Get index contains class active and get it index
-        const indexActiveClass = $(".slick-dots li.slick-active").index();
+        const indexActiveClass = $(".slick-current").attr("data-slick-index");
+
         // 4) If indes === index active class / will be render paragraph from this index
-        if (index === indexActiveClass) {
-          elementSlider.head.text(cur.name);
-          elementSlider.par.text(cur.description);
+        if (index == indexActiveClass) {
+          elementSlider.head.text(cur[namesFromApi.name]);
+          elementSlider.par.text(cur[namesFromApi.description]);
         }
       });
 
       // 3) Get id after changed
       let indexDataArray = $(".slick-dots li.slick-active").index();
 
-      //
+      // 4) After change slider
       elementSlider.wrapper.on("afterChange", function () {
         // 1) Get current index after change slider
         var indexCurrentSlide = $(".slick-current").attr("data-slick-index");
+
         // 2) Update var => indexDataArray equal indexCurrentSlide
         indexDataArray = indexCurrentSlide;
+
         // 3) Change head, and par with index data from API
-        elementSlider.head.text(dataSlider[indexCurrentSlide].name);
-        elementSlider.par.text(dataSlider[indexCurrentSlide].description);
+        elementSlider.head.text(Data[indexCurrentSlide][namesFromApi.name]);
+        elementSlider.par.text(
+          Data[indexCurrentSlide][namesFromApi.description]
+        );
       });
 
-      // 4) When clicked in btn will be get data the current
+      // 5) When clicked in btn will be get data the current
       elementSlider.btn.on("click", (e) => {
         // 1) Get data with index the current slide, and convert to json
-        const data = dataSlider[indexDataArray]["id"];
+        const data = Data[indexDataArray][namesFromApi.id];
         // 2) Finaly store data in localstorge
         localStorage.setItem("projectId", data);
       });
@@ -253,8 +274,6 @@ jQuery(function () {
       alert("some error please try reload");
     }
   }
-  // Run fn render data slider
-  renderDataSlider(urlApi);
 
   /////////////////////////////////////
   // Page Projects
@@ -268,50 +287,55 @@ jQuery(function () {
       wrapper1: $("#projectsWrapper"),
       wrapper2: $("#otherProjectsWrapper"),
     };
-    //
-    const getDataLocalStorage = +localStorage.getItem("projectId") || 1;
-    //
-    if (getDataLocalStorage !== null) {
-      // 1) Get date from api
-      $.get(urlApi).done((data) => {
-        // 2) For each all data
-        $.each(data, (i, cur) => {
-          // 3) If cur.id equal getDateLocalStorage
-          if (cur.id === getDataLocalStorage) {
-            // 4) Add all date into each field
-            elementProjects.name.text(cur.name);
-            elementProjects.location.text(cur.city);
-            elementProjects.date.text(cur.date);
-            elementProjects.description.text(cur.description);
 
-            // 5) Render img tag, and include data
-            $.each(cur.img, (i, img) => {
-              const image = `<img src=${img} class="obj-image" alt=${cur.name} />`;
-              // 2) Append image in slider
-              elementProjects.wrapper1.slick("slickAdd", image);
-            });
-          } else {
-            // 1) Create card
-            const card = `
-                <div class="card-projects text-capitalize" key=${cur.id}>
-                    <div class="other-projects__wrapper__image">
-                        <img class="img-fluid obj-image" src=${cur.img[0]} alt=${cur.name} />
-                    </div>
-                    
-                    <h4 class="h-small weight-bold mt-2 mb-3">${cur.name}</h4>
-                    <p class="m-0 mb-1">${cur.city}</p>
-                    <p class="m-0">${cur.date}</p>
-                </div>
-            `;
-            // 2) Append image in slider
-            elementProjects.wrapper2.slick("slickAdd", card);
-          }
-        });
+    // 1) Get localstorage => project id || 1
+    const getDataLocalStorage = +localStorage.getItem("projectId") || 1;
+
+    //////////////////////////////
+    // 2) Get date from api
+    $.get(`${API.apiProject}${getDataLocalStorage}`).done(({ Data }) => {
+      // 1) Add all date into each field
+      elementProjects.name.text(Data[namesFromApi.name]);
+      elementProjects.location.text(Data[namesFromApi.city]);
+      elementProjects.date.text(Data[namesFromApi.date]);
+      elementProjects.description.text(Data[namesFromApi.description]);
+
+      // 2) Render img tag, and include data
+      $.each(Data["project_slider"], (i, img) => {
+        // 1) Create image tag
+        const image = `<img src=${img} class="obj-image" alt=${
+          Data[namesFromApi.name]
+        } />`;
+        // 2) Append image in slider
+        elementProjects.wrapper1.slick("slickAdd", image);
       });
-    }
+
+      // 3) Add other projects
+      $.each(Data["other_projects"], (i, project) => {
+        // 1) Create card element
+        const card = `
+            <div class="card-projects text-capitalize" key=${
+              project[namesFromApi.id]
+            }>
+                <div class="other-projects__wrapper__image">
+                    <img class="img-fluid obj-image" src=${project.image} alt=${
+          project[namesFromApi.name]
+        } />
+                </div>
+                <h4 class="h-small weight-bold mt-2 mb-3">${
+                  project[namesFromApi.name]
+                }</h4>
+                <p class="m-0 mb-1">${project[namesFromApi.city]}</p>
+                <p class="m-0">${project[namesFromApi.date]}</p>
+            </div>
+        `;
+        // 2) Append image in slider
+        elementProjects.wrapper2.slick("slickAdd", card);
+      });
+    });
   }
 
-  // Add event click on card products
+  // Add event click on card products when clicked on it will be run all actions
   $(document).on("click", ".card-projects", function () {
     // 1) Get id from attributes => key
     const getId = $(this).attr("key");
@@ -330,6 +354,10 @@ jQuery(function () {
       }
     );
   });
+
+  // Run fn render data slider
+  renderDataSlider(API.apiAllProjects);
+
   /////////////////////////////////////
   //// Section our partners
   // 1) Get count images
@@ -374,6 +402,7 @@ jQuery(function () {
   //// Footer
   $("#year").text(new Date().getFullYear());
 
+  /////////////////////////////////////
   // Whatsapp popup
   $("#whatsapp").on("click", function () {
     $(".whatsapp__icon__whatsapp").toggleClass("hideIcon");
