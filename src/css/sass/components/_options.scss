@@ -90,6 +90,7 @@
     height: 60px;
     background-color: var(--whatsapp);
     box-shadow: 0 5px 5px rgba(map-get($theme-colors, secondary), 0.3);
+    z-index: 20000;
     // General svg
     svg {
       transition: all 0.5s ease;
