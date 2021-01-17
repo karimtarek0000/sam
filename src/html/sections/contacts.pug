@@ -12,13 +12,13 @@ footer.contacts#contacts
             include ../components/logo
             p.first-letter.p-mid.weight-normal.mt-3.mt-lg-3 download the binqasem app and get notifications when new auctions start or if there's any update to your items.
 
-            div.my-3.my-lg-5
-                p.d-flex.align-items-center
-                    +getSvgIcon('send', 'resize-svg-contact')
-                    | For Queries: info@androomeda.net
-                p.d-flex.align-items-center
-                    +getSvgIcon('telephone', 'resize-svg-contact')
-                    | For call : 920012888
+            //- div.my-3.my-lg-5
+            //-     p.d-flex.align-items-center
+            //-         +getSvgIcon('send', 'resize-svg-contact')
+            //-         | For Queries: info@androomeda.net
+            //-     p.d-flex.align-items-center
+            //-         +getSvgIcon('telephone', 'resize-svg-contact')
+            //-         | For call : 920012888
 
             div.contacts__section-1__icons.d-flex
                 a(class="d-flex align-items-center justify-content-center rounded-circle" href="#")
@@ -33,12 +33,16 @@ footer.contacts#contacts
                     +getSvgIcon('instagram', 'resize-svg-contact')
 
         .col-md-4.col-lg-3.contacts__section-2.mt-3.mt-lg-4
-            -var one = ['mobiles, electronic devices & accessories', 'cars, trucks and bicycles', 'books & novels', 'furniture & home appliances']
-            +sectionContact('popular searches', one)
+            -var one = [{title: "02 3835 0139", icon: "telephone"}, {title: "01101757591", icon: "mobile"}, {title: 'info@sam-construction.com', icon: 'mail'}]
+            +sectionContact('contact us', one)
 
         .col-md-3.col-lg-2.contacts__section-3.mt-3.mt-lg-4
-            -var two = ['exceptional products', 'featured auctions', 'recently added auctions']
-            +sectionContact('auctions', two)
+            h4.h-xsmall.weight-bold.text-primary.text-capitalize.mb-2.mb-lg-3 site map
+            -const itemsContacts = ['home', 'aboutus', 'projects', 'partners', 'contacts']
+            ul(class="navbar-nav")
+                each item in itemsContacts
+                    li.nav-item
+                        a(class='nav-link weight-normal cursor text-capitalize text-primary py-1 px-1 mx-1' class=item == title ? 'active' : '' data-section=item.replace(' ', '') key=item href=item == 'home'? '/' : item)
 
         .col-md-3.col-lg-2.contacts__section-4.mt-3.mt-lg-4
             -var three = ['about us', 'why so', 'become a seller', 'how auctions work']

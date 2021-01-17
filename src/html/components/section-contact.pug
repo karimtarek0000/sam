@@ -1,5 +1,14 @@
+//- 
+include ../components/svg
+
+//- 
 mixin sectionContact(title, lists)
         h4.h-xsmall.weight-bold.text-primary.text-capitalize.mb-2.mb-lg-4=title
         ul
         each list in lists
-            li.list-unstyled.text-gray.weight-normal.text-uppercase.mb-2.mb-lg-3.p-small=list
+            if typeof(list) !== "object"
+                li.list-unstyled.text-gray.weight-normal.text-uppercase.mb-2.mb-lg-3.p-small=list
+            else
+                li.list-unstyled.text-gray.weight-normal.mb-2.mb-lg-3.p-small.d-flex.align-items-center
+                    +getSvgIcon(list.icon, 'resize-svg-contact')
+                    p(class="mb-0 mx-2" class=list.title.match(/\d/g) ? 'direction-ltr':'')=list.title
