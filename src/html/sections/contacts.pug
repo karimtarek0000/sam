@@ -27,11 +27,7 @@ footer.contacts#contacts
                     +getSvgIcon('telephone', 'resize-svg-contact')
                 a(class="d-flex align-items-center justify-content-center rounded-circle" href="#")
                     +getSvgIcon('facebook', 'resize-svg-contact')
-                a(class="d-flex align-items-center justify-content-center rounded-circle" href="#")
-                    +getSvgIcon('twitter', 'resize-svg-contact')
-                a(class="d-flex align-items-center justify-content-center rounded-circle" href="#")
-                    +getSvgIcon('instagram', 'resize-svg-contact')
-
+                    
         .col-md-4.col-lg-3.contacts__section-2.mt-3.mt-lg-4
             -var one = [{title: "02 3835 0139", icon: "telephone"}, {title: "01101757591", icon: "mobile"}, {title: 'info@sam-construction.com', icon: 'mail'}]
             +sectionContact('contact us', one)
@@ -43,11 +39,6 @@ footer.contacts#contacts
                 each item in itemsContacts
                     li.nav-item
                         a(class='nav-link weight-normal cursor text-capitalize text-primary py-1 px-1 mx-1' class=item == title ? 'active' : '' data-section=item.replace(' ', '') key=item href=item == 'home'? '/' : item)
-
-        .col-md-3.col-lg-2.contacts__section-4.mt-3.mt-lg-4
-            -var three = ['about us', 'why so', 'become a seller', 'how auctions work']
-            +sectionContact('about binqasem', three)
-
 
     .row.no-gutters.container.py-3
         .col.text-center.text-lg-right
