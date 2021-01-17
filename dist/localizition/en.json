@@ -11,6 +11,9 @@
       "btn-2": "view more",
       "head-2": "our projects",
       "head-3": "our partners"
+    },
+    "projects": {
+      "head-1": "our projects"
     }
   }
 }
