@@ -22,10 +22,10 @@ footer.contacts#contacts
                     
         .col-md-4.col-lg-3.contacts__section-2.mt-3.mt-lg-4
             -var one = [{title: "02 3835 0139", icon: "telephone"}, {title: "01101757591", icon: "mobile"}, {title: 'info@sam-construction.com', icon: 'mail'}]
-            +sectionContact('contact us', one)
+            +sectionContact('contact us', one)(class="heading" key=title data-lang="head-4")
 
         .col-md-3.col-lg-2.contacts__section-3.mt-3.mt-lg-4
-            h4.h-xsmall.weight-bold.text-primary.text-capitalize.mb-2.mb-lg-3 site map
+            h4(class="h-xsmall weight-bold text-primary text-capitalize mb-2 mb-lg-3 heading" key=title data-lang="head-5")
             -const itemsContacts = ['home', 'aboutus', 'projects', 'partners', 'contacts']
             ul(class="navbar-nav")
                 each item in itemsContacts
