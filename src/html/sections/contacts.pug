@@ -10,20 +10,12 @@ footer.contacts#contacts
         .col-md-12.col-lg-3.text-gray.contacts__section-1
             //- 
             include ../components/logo
-            p.first-letter.p-mid.weight-normal.mt-3.mt-lg-3 download the binqasem app and get notifications when new auctions start or if there's any update to your items.
-
-            //- div.my-3.my-lg-5
-            //-     p.d-flex.align-items-center
-            //-         +getSvgIcon('send', 'resize-svg-contact')
-            //-         | For Queries: info@androomeda.net
-            //-     p.d-flex.align-items-center
-            //-         +getSvgIcon('telephone', 'resize-svg-contact')
-            //-         | For call : 920012888
+            p(class="first-letter p-mid weight-normal mt-3 mt-lg-3 par" key=title data-lang="par-2")
 
             div.contacts__section-1__icons.d-flex
-                a(class="d-flex align-items-center justify-content-center rounded-circle" href="#")
+                a(class="d-flex align-items-center justify-content-center rounded-circle" href="https://goo.gl/maps/nT1n49ujDKzzEGZN8" target="_blank")
                     +getSvgIcon('map', 'resize-svg-contact')
-                a(class="d-flex align-items-center justify-content-center rounded-circle" href="#")
+                a(class="d-flex align-items-center justify-content-center rounded-circle" href="tel:+201101757591")
                     +getSvgIcon('telephone', 'resize-svg-contact')
                 a(class="d-flex align-items-center justify-content-center rounded-circle" href="#")
                     +getSvgIcon('facebook', 'resize-svg-contact')
@@ -42,4 +34,4 @@ footer.contacts#contacts
 
     .row.no-gutters.container.py-3
         .col.text-center.text-lg-right
-            p.text-gray.text-uppercase.m-0 copyright © !{'<span id="year">2020</span>'} !{'<a href="/">sam</a>'}
+            p.text-gray.text-uppercase.m-0 copyright © !{'<span id="year"></span>'} !{'<a href="/">sam</a>'}

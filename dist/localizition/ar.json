@@ -13,9 +13,12 @@
   },
   "pages": {
     "home": {
-      "btn-2": "شاهد المزيــد",
+      "head-1": "bid & seize deal",
       "head-2": "مشروعاتنآ",
-      "head-3": "شركائنآ"
+      "head-3": "شركائنآ",
+      "par-1": "great service, great quality would recommend with nothing more nothing less. thank you sam and will use again in the future for sure.",
+      "par-2": "Download the binqasem app and get notifications when new auctions start or if there's any update to your items.",
+      "btn-2": "شاهد المزيــد"
     },
     "projects": {
       "head-1": "مشروعاتنآ الآخري"

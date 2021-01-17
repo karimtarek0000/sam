@@ -88,7 +88,7 @@ jQuery(function () {
     );
 
     // heading, button
-    $(".heading, .button").each((i, cur) => {
+    $(".heading, .button, .par").each((i, cur) => {
       $(cur).text(localizition.pages[$(cur).attr("key")][$(cur).data("lang")]);
     });
   }
@@ -222,6 +222,7 @@ jQuery(function () {
     apiProject: "https://sam-construction.com/sam/api/projects/",
     apiAboutUs: "https://sam-construction.com/sam/api/pages/1",
     apiPartners: "https://sam-construction.com/sam/api/partners",
+    apiSetting: "https://sam-construction.com/sam/api/settings",
   };
 
   // All names into api
@@ -472,6 +473,14 @@ jQuery(function () {
 
   /////////////////////////////////////
   ///// 6) Whatsapp popup
+  // 1) Add number from api and set in href anchor tag
+  $.get(API.apiSetting).done(({ Data }) => {
+    $("#whatsapp-number").attr(
+      "href",
+      `https://wa.me/${Data["telephone_number"]}`
+    );
+  });
+  // 2) Click event on whatsapp icon
   $("#whatsapp").on("click", function () {
     $(".whatsapp__icon__whatsapp").toggleClass("hideIcon");
     $(".whatsapp__icon__close").toggleClass("visibleIcon");
