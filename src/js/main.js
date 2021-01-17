@@ -70,6 +70,18 @@ jQuery(function () {
       $("html").attr({ dir: "ltr", lang: "en" });
     }
 
+    /////////////////////////////
+    // 1) Get title page
+    const getTitle =
+      location.pathname == "/"
+        ? "home"
+        : location.pathname.replace(/([/]|.html)/g, "");
+
+    // 2) Add title page pased getTitle
+    document.title = localizition.title[getTitle];
+
+    /////////////////////////////
+    //// Localizition other
     // Navbar links
     $(".navbar-nav a").each((i, cur) =>
       $(cur).text(localizition.navbar[$(cur).attr("key")])
@@ -123,7 +135,7 @@ jQuery(function () {
     if ($(this).parent().children("p").hasClass("more")) {
       $("html").attr("dir") === "ltr"
         ? $(this).text("less")
-        : $(this).text("اقل");
+        : $(this).text("شاهد اقل");
     } else {
       $("html").attr("dir") === "ltr"
         ? $(this).text("view more")

@@ -1,4 +1,8 @@
 {
+  "title": {
+    "home": "SAM|home",
+    "projects": "SAM|projects"
+  },
   "navbar": {
     "home": "home",
     "aboutus": "about us",
