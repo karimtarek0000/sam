@@ -417,10 +417,11 @@ jQuery(function () {
   //// 4) Section our partners
   // 1) Get count images
   function showAndHidden(timer) {
-    const countImages = $("#partners__image").children().length;
     let count = 0;
-    //
+    // Setinterval
     setInterval(() => {
+      const countImages = $("#partners__image").children().length;
+
       // 1) Check if count equal count image length will be return count = 0
       if (count === countImages) count = 0;
 
