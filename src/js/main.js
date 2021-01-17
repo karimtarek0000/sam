@@ -87,9 +87,15 @@ jQuery(function () {
       $(cur).text(localizition.navbar[$(cur).attr("key")])
     );
 
-    // heading, button
+    // Other
     $(".heading, .button, .par").each((i, cur) => {
-      $(cur).text(localizition.pages[$(cur).attr("key")][$(cur).data("lang")]);
+      if ($(cur).attr("key") === "footer") {
+        $(cur).text(localizition[$(cur).attr("key")][$(cur).data("lang")]);
+      } else {
+        $(cur).text(
+          localizition.pages[$(cur).attr("key")][$(cur).data("lang")]
+        );
+      }
     });
   }
 

@@ -10,7 +10,7 @@ footer.contacts#contacts
         .col-md-12.col-lg-3.text-gray.contacts__section-1
             //- 
             include ../components/logo
-            p(class="first-letter p-mid weight-normal mt-3 mt-lg-3 par" key=title data-lang="par-2")
+            p(class="first-letter p-mid weight-normal mt-3 mt-lg-3 par" key="footer" data-lang="par-1")
 
             div.contacts__section-1__icons.d-flex
                 a(class="d-flex align-items-center justify-content-center rounded-circle" href="https://goo.gl/maps/nT1n49ujDKzzEGZN8" target="_blank")
@@ -22,10 +22,10 @@ footer.contacts#contacts
                     
         .col-md-4.col-lg-3.contacts__section-2.mt-3.mt-lg-4
             -var one = [{title: "02 3835 0139", icon: "telephone"}, {title: "01101757591", icon: "mobile"}, {title: 'info@sam-construction.com', icon: 'mail'}]
-            +sectionContact('contact us', one)(class="heading" key=title data-lang="head-4")
+            +sectionContact('contact us', one)(class="heading" key="footer" data-lang="head-1")
 
         .col-md-3.col-lg-2.contacts__section-3.mt-3.mt-lg-4
-            h4(class="h-xsmall weight-bold text-primary text-capitalize mb-2 mb-lg-3 heading" key=title data-lang="head-5")
+            h4(class="h-xsmall weight-bold text-primary text-capitalize mb-2 mb-lg-3 heading" key="footer" data-lang="head-2")
             -const itemsContacts = ['home', 'aboutus', 'projects', 'partners', 'contacts']
             ul(class="navbar-nav")
                 each item in itemsContacts
@@ -34,4 +34,4 @@ footer.contacts#contacts
 
     .row.no-gutters.container.py-3
         .col.text-center.text-lg-right
-            p.text-gray.text-uppercase.m-0 copyright © !{'<span id="year"></span>'} !{'<a href="/">sam</a>'}
+            p.text-gray.text-uppercase.m-0 !{'<span class="par" key="footer" data-lang="copyright"></span>'} © !{'<span id="year"></span>'} !{'<a href="/">sam</a>'}
