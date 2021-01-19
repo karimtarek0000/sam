@@ -1,26 +1,26 @@
 {
   "title": {
-    "home": "سام|الرئيسية",
-    "projects": "سام|المشروعات"
+    "home": "سام للإنشاءات",
+    "projects": "مشاريعنا"
   },
   "navbar": {
     "home": "الرئيسية",
-    "aboutus": "ماذا عنا",
+    "aboutus": "عن الشركة",
     "projects": "المشروعات",
-    "works": "الآعمال",
-    "partners": "الشركاء",
-    "contacts": "التواصل"
+    "works": "المشاريع",
+    "partners": "شركائنا",
+    "contacts": "اتصل بنا"
   },
   "pages": {
     "home": {
-      "head-1": "bid & seize deal",
-      "head-2": "مشروعاتنآ",
-      "head-3": "شركائنآ",
-      "par-1": "great service, great quality would recommend with nothing more nothing less. thank you sam and will use again in the future for sure.",
+      "head-1": "سام للآنشاءات",
+      "head-2": "أعمالنا",
+      "head-3": "شركائنا",
+      "par-1": "sam construction company, established in 2019, with a team that has more than 7 years of experience in construction and real esatate development.",
       "btn-2": "شاهد المزيــد"
     },
     "projects": {
-      "head-1": "مشروعاتنآ الآخري"
+      "head-1": "مشاريع اخري"
     }
   },
   "footer": {
