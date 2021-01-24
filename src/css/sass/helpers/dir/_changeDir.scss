@@ -45,6 +45,17 @@ html[dir="rtl"] body {
     &__info {
       margin-left: auto;
     }
+
+    //
+    h1 {
+      width: 20%;
+      line-height: 94px;
+
+      //
+      @media (max-width: 600px) {
+        line-height: 50px;
+      }
+    }
   }
 
   //
